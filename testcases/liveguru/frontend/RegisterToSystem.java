@@ -59,12 +59,7 @@ public class RegisterToSystem extends AbstractTest{
 	
 	@Test
 	public void TC_03_VerifyCostAtListAndDetailAreEqual() {
-		System.out.println(emailAddress);
-		System.out.println(emailAddress);
-
-		System.out.println(emailAddress);
-
-		System.out.println(emailAddress);
+		
 	}
 
 	public int ramdomNumber() {
