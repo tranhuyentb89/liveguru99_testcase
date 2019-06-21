@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import commons.AbstractPage;
 import commons.PageFactoryManage;
 import liveguru.frontend.AbstractPageUI;
-import liveguru.frontend.homePageUI;
+import liveguru.frontend.HomePageUI;
 
 public class HomePageObject extends AbstractPage{
 	public HomePageObject(WebDriver driver) {
@@ -20,7 +20,7 @@ public class HomePageObject extends AbstractPage{
 	}
 	
 	public void clickToAccountButton() {
-		clickToElement(driver, homePageUI.ACCOUNT_LINK);
+		clickToElement(driver, HomePageUI.ACCOUNT_LINK);
 	}
 
 }

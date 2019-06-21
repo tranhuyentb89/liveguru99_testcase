@@ -11,14 +11,18 @@ import org.testng.annotations.Test;
 import commons.AbstractTest;
 import commons.PageFactoryManage;
 import pageObjects.AccountInformationPageObject;
+import pageObjects.CheckOutCartPageObject;
 import pageObjects.HomePageObject;
+import pageObjects.MobilePageObject;
 import pageObjects.RegisterPageObject;
 public class RegisterToSystem extends AbstractTest{
 	WebDriver driver;
-	String firstName, middleName, lastName, emailAddress, password, confirmPassword;
+	String firstName, middleName, lastName, emailAddress, password, confirmPassword, priceAtList, priceAtDetail, mobilePageUrl, coupon;
 	HomePageObject homePage;
 	RegisterPageObject registerPage;
 	AccountInformationPageObject accountInfoPage;
+	MobilePageObject mobilePage;
+	CheckOutCartPageObject checkoutCartPage;
 	@Parameters("browser")
 	@BeforeTest
 	public void beforeTest(String browserName) {
@@ -30,6 +34,7 @@ public class RegisterToSystem extends AbstractTest{
 		emailAddress = "tranhuyen"+ ramdomNumber() +"@gmail.com";
 		password ="123456";
 		confirmPassword = "123456";
+		coupon ="GURU50";
 	}
 	
 	@Test
@@ -59,9 +64,24 @@ public class RegisterToSystem extends AbstractTest{
 	
 	@Test
 	public void TC_03_VerifyCostAtListAndDetailAreEqual() {
-		
+		mobilePage = accountInfoPage.clickToMobileButton("Mobile");
+		mobilePageUrl = mobilePage.getCurrentUrl(driver);
+		priceAtList = mobilePage.getPriceOfProductAtList();
+		mobilePage.clickToProductToViewDetail();
+		priceAtDetail = mobilePage.getPriceOfProductAtDetail();
+		System.out.println(priceAtList);
+		System.out.println(priceAtDetail);
+
+		verifyEquals(priceAtList, priceAtDetail);
 	}
 
+	@Test
+	public void TC_05_VerifyDiscount() {
+		mobilePage.openUrl(driver, mobilePageUrl);
+		checkoutCartPage = mobilePage.clickToAddToCardButton(driver, "IPhone");
+		checkoutCartPage.inputToDiscountTextBox(coupon);
+		checkoutCartPage.clickToApplyButton();
+	}
 	public int ramdomNumber() {
 		Random radom = new Random();
 		int number = radom.nextInt(9999999);

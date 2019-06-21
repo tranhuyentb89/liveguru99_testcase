@@ -3,8 +3,8 @@ package pageObjects;
 import org.openqa.selenium.WebDriver;
 
 import commons.AbstractPage;
-import liveguru.frontend.homePageUI;
-import liveguru.frontend.registerPageUI;
+import liveguru.frontend.HomePageUI;
+import liveguru.frontend.RegisterPageUI;
 
 public class RegisterPageObject extends AbstractPage{
 	public RegisterPageObject(WebDriver driver) {
@@ -15,15 +15,15 @@ public class RegisterPageObject extends AbstractPage{
 	WebDriver driver;
 
 	public boolean isRegisterFormDisplayed() {
-		waitForElementVisible(driver, homePageUI.REGISTER_FORM);
-		return isControlDisplayed(driver, homePageUI.REGISTER_FORM);
+		waitForElementVisible(driver, HomePageUI.REGISTER_FORM);
+		return isControlDisplayed(driver, HomePageUI.REGISTER_FORM);
 	}
 
 	public void clickToRegisterButton() {
-		clickToElement(driver, registerPageUI.REGISTER_BUTTON);
+		clickToElement(driver, RegisterPageUI.REGISTER_BUTTON);
 	}
 
 	public Object getPageTitle() {
-		return getTextElement(driver, registerPageUI.DASHBOARD_PAGE_TITLE);
+		return getTextElement(driver, RegisterPageUI.DASHBOARD_PAGE_TITLE);
 	}
 }
