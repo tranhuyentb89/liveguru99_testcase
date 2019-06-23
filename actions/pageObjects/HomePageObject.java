@@ -23,4 +23,9 @@ public class HomePageObject extends AbstractPage{
 		clickToElement(driver, HomePageUI.ACCOUNT_LINK);
 	}
 
+	public AdvancedSearchPageObject clickToAdvancedSearchLink() {
+		clickToElement(driver, HomePageUI.ADVANCED_SEARCH_LINK);
+		return PageFactoryManage.getAdvancedSearchPage(driver);
+	}
+
 }
