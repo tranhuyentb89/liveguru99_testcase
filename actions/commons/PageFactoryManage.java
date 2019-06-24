@@ -2,46 +2,46 @@ package commons;
 
 import org.openqa.selenium.WebDriver;
 
-import pageObjects.AccountInformationPageObject;
-import pageObjects.AdvancedSearchPageObject;
-import pageObjects.AdvancedSearchResultPageObject;
-import pageObjects.CheckOutCartPageObject;
-import pageObjects.HomePageObject;
-import pageObjects.MobilePageObject;
-import pageObjects.RegisterPageObject;
-import pageObjects.TVPageObject;
+import pageObjects.FrontEnd_AccountInformationPageObject;
+import pageObjects.FrontEnd_AdvancedSearchPageObject;
+import pageObjects.FrontEnd_AdvancedSearchResultPageObject;
+import pageObjects.FrontEnd_CheckOutCartPageObject;
+import pageObjects.FrontEnd_HomePageObject;
+import pageObjects.FrontEnd_MobilePageObject;
+import pageObjects.FrontEnd_RegisterPageObject;
+import pageObjects.FrontEnd_TVPageObject;
 
 public class PageFactoryManage {
-	public static RegisterPageObject getRegisterPage(WebDriver driver) {
-		return new RegisterPageObject(driver);
+	public static FrontEnd_RegisterPageObject getRegisterPage(WebDriver driver) {
+		return new FrontEnd_RegisterPageObject(driver);
 	}
 
-	public static AccountInformationPageObject getAccountInfoPage(WebDriver driver) {
-		return new AccountInformationPageObject(driver);
+	public static FrontEnd_AccountInformationPageObject getAccountInfoPage(WebDriver driver) {
+		return new FrontEnd_AccountInformationPageObject(driver);
 	}
 
-	public static MobilePageObject getMobilePage(WebDriver driver) {
-		return new MobilePageObject(driver);
+	public static FrontEnd_MobilePageObject getMobilePage(WebDriver driver) {
+		return new FrontEnd_MobilePageObject(driver);
 	}
 
-	public static CheckOutCartPageObject getCheckOutCartPage(WebDriver driver) {
-		return new CheckOutCartPageObject(driver);
+	public static FrontEnd_CheckOutCartPageObject getCheckOutCartPage(WebDriver driver) {
+		return new FrontEnd_CheckOutCartPageObject(driver);
 	}
 
-	public static TVPageObject getTVPage(WebDriver driver) {
-		return new TVPageObject(driver);
+	public static FrontEnd_TVPageObject getTVPage(WebDriver driver) {
+		return new FrontEnd_TVPageObject(driver);
 	}
 
-	public static HomePageObject getHomePage(WebDriver driver) {
-		return new HomePageObject(driver);
+	public static FrontEnd_HomePageObject getHomePage(WebDriver driver) {
+		return new FrontEnd_HomePageObject(driver);
 	}
 
-	public static AdvancedSearchPageObject getAdvancedSearchPage(WebDriver driver) {
-		return new AdvancedSearchPageObject(driver);
+	public static FrontEnd_AdvancedSearchPageObject getAdvancedSearchPage(WebDriver driver) {
+		return new FrontEnd_AdvancedSearchPageObject(driver);
 	}
 
-	public static AdvancedSearchResultPageObject getAdvancedSearchResultPage(WebDriver driver) {
-		return new AdvancedSearchResultPageObject(driver);
+	public static FrontEnd_AdvancedSearchResultPageObject getAdvancedSearchResultPage(WebDriver driver) {
+		return new FrontEnd_AdvancedSearchResultPageObject(driver);
 	}
 	
 

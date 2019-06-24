@@ -1,90 +1,90 @@
-2019-06-23 17:28:00,505 INFO  liveguru.frontend.RegisterToSystem - Register - Step 01 : click to Register button
-2019-06-23 17:28:01,177 INFO  liveguru.frontend.RegisterToSystem - Register - Step 02 : Verify Register Page is displayed
-2019-06-23 17:28:01,237 INFO  liveguru.frontend.RegisterToSystem - ===PASSED==
-2019-06-23 17:28:01,238 INFO  liveguru.frontend.RegisterToSystem - Register - Step 03 : Input to all field and click Register button
-2019-06-23 17:28:03,314 INFO  liveguru.frontend.RegisterToSystem - Verify Info - Step 01 : Open Account Info page
-2019-06-23 17:28:03,868 INFO  liveguru.frontend.RegisterToSystem - Verify Info - Step 02 : Verify info is correcttly
-2019-06-23 17:28:03,888 INFO  liveguru.frontend.RegisterToSystem - Actual = huyen
-2019-06-23 17:28:03,888 INFO  liveguru.frontend.RegisterToSystem - Expected = huyen
-2019-06-23 17:28:03,888 INFO  liveguru.frontend.RegisterToSystem - Compare value = true
-2019-06-23 17:28:03,888 INFO  liveguru.frontend.RegisterToSystem - ===PASSED===
-2019-06-23 17:28:03,907 INFO  liveguru.frontend.RegisterToSystem - Actual = tran
-2019-06-23 17:28:03,907 INFO  liveguru.frontend.RegisterToSystem - Expected = tran
-2019-06-23 17:28:03,907 INFO  liveguru.frontend.RegisterToSystem - Compare value = true
-2019-06-23 17:28:03,907 INFO  liveguru.frontend.RegisterToSystem - ===PASSED===
-2019-06-23 17:28:03,924 INFO  liveguru.frontend.RegisterToSystem - Actual = thi
-2019-06-23 17:28:03,924 INFO  liveguru.frontend.RegisterToSystem - Expected = thi
-2019-06-23 17:28:03,924 INFO  liveguru.frontend.RegisterToSystem - Compare value = true
-2019-06-23 17:28:03,924 INFO  liveguru.frontend.RegisterToSystem - ===PASSED===
-2019-06-23 17:28:03,926 INFO  liveguru.frontend.RegisterToSystem - Verify Cost - Step 01 : Open Mobile Page
-2019-06-23 17:28:05,395 INFO  liveguru.frontend.RegisterToSystem - Verify Info - Step 02 : get Price at the list of product
-2019-06-23 17:28:07,727 INFO  liveguru.frontend.RegisterToSystem - Verify Info - Step 03 : get Price at the product detail
-2019-06-23 17:28:07,761 INFO  liveguru.frontend.RegisterToSystem - Verify Info - Step 04 : Verify price on both is equal
-2019-06-23 17:28:07,761 INFO  liveguru.frontend.RegisterToSystem - Actual = $100.00
-2019-06-23 17:28:07,761 INFO  liveguru.frontend.RegisterToSystem - Expected = $100.00
-2019-06-23 17:28:07,761 INFO  liveguru.frontend.RegisterToSystem - Compare value = true
-2019-06-23 17:28:07,761 INFO  liveguru.frontend.RegisterToSystem - ===PASSED===
-2019-06-23 17:28:07,763 INFO  liveguru.frontend.RegisterToSystem - Verify Discount - Step 01 : Open Mobile Page
-2019-06-23 17:28:08,434 INFO  liveguru.frontend.RegisterToSystem - Verify Discount - Step 02 : Click to Iphone
-2019-06-23 17:28:10,087 INFO  liveguru.frontend.RegisterToSystem - Verify Discount - Step 03 : Input to discount textbox
-2019-06-23 17:28:10,207 INFO  liveguru.frontend.RegisterToSystem - Verify Discount - Step 04 : Click to apply button
-2019-06-23 17:28:11,271 INFO  liveguru.frontend.RegisterToSystem - Verify Discount - Step 05 : Verify discount amount and grand total is correct
-2019-06-23 17:28:11,303 INFO  liveguru.frontend.RegisterToSystem - Actual = -$25.00
-2019-06-23 17:28:11,304 INFO  liveguru.frontend.RegisterToSystem - Expected = -$25.00
-2019-06-23 17:28:11,304 INFO  liveguru.frontend.RegisterToSystem - Compare value = true
-2019-06-23 17:28:11,304 INFO  liveguru.frontend.RegisterToSystem - ===PASSED===
-2019-06-23 17:28:11,343 INFO  liveguru.frontend.RegisterToSystem - Actual = $500.00
-2019-06-23 17:28:11,343 INFO  liveguru.frontend.RegisterToSystem - Expected = $475.00
-2019-06-23 17:28:11,343 INFO  liveguru.frontend.RegisterToSystem - Compare value = false
-2019-06-23 17:28:11,343 INFO  liveguru.frontend.RegisterToSystem - ===FAILED===
-2019-06-23 17:28:11,371 INFO  liveguru.frontend.RegisterToSystem - Verify Quantity Box - Step 01 : Open Mobile Page
-2019-06-23 17:28:11,827 INFO  liveguru.frontend.RegisterToSystem - Verify Quantity Box - Step 02 : Click Add To Card Sony Xperia
-2019-06-23 17:28:13,273 INFO  liveguru.frontend.RegisterToSystem - Verify Quantity Box - Step 03 : Clear quantity Textbox
-2019-06-23 17:28:13,369 INFO  liveguru.frontend.RegisterToSystem - Verify Quantity Box - Step 04 : Click to apply button
-2019-06-23 17:28:13,462 INFO  liveguru.frontend.RegisterToSystem - Verify Quantity Box - Step 05 : Click to update button
-2019-06-23 17:28:14,680 INFO  liveguru.frontend.RegisterToSystem - Verify Quantity Box - Step 06 : Verify Error message
-2019-06-23 17:28:14,713 INFO  liveguru.frontend.RegisterToSystem - Actual = * The maximum quantity allowed for purchase is 500.
-2019-06-23 17:28:14,713 INFO  liveguru.frontend.RegisterToSystem - Expected = * The maximum quantity allowed for purchase is 500.
-2019-06-23 17:28:14,714 INFO  liveguru.frontend.RegisterToSystem - Compare value = true
-2019-06-23 17:28:14,714 INFO  liveguru.frontend.RegisterToSystem - ===PASSED===
-2019-06-23 17:28:14,714 INFO  liveguru.frontend.RegisterToSystem - Verify Quantity Box - Step 07 : Click to Empty button
-2019-06-23 17:28:15,785 INFO  liveguru.frontend.RegisterToSystem - ===PASSED==
-2019-06-23 17:28:15,786 INFO  liveguru.frontend.RegisterToSystem - CompareProduct - Step 01 : Open Mobile Page
-2019-06-23 17:28:16,645 INFO  liveguru.frontend.RegisterToSystem - CompareProduct - Step 02 : Add Sony Xperia to compare
-2019-06-23 17:28:17,968 INFO  liveguru.frontend.RegisterToSystem - CompareProduct - Step 03 : Add IPhone to compare
-2019-06-23 17:28:19,267 INFO  liveguru.frontend.RegisterToSystem - CompareProduct - Step 04 : Click to compare button
-2019-06-23 17:28:21,553 INFO  liveguru.frontend.RegisterToSystem - CompareProduct - Step 05 : Verify Heading is Compare Products
-2019-06-23 17:28:21,599 INFO  liveguru.frontend.RegisterToSystem - ===PASSED==
-2019-06-23 17:28:21,600 INFO  liveguru.frontend.RegisterToSystem - CompareProduct - Step 06 : Verify Sony Xperia and IPhone is present
-2019-06-23 17:28:21,627 INFO  liveguru.frontend.RegisterToSystem - Actual = IPhone
-2019-06-23 17:28:21,627 INFO  liveguru.frontend.RegisterToSystem - Expected = IPhone
-2019-06-23 17:28:21,627 INFO  liveguru.frontend.RegisterToSystem - Compare value = true
-2019-06-23 17:28:21,627 INFO  liveguru.frontend.RegisterToSystem - ===PASSED===
-2019-06-23 17:28:21,648 INFO  liveguru.frontend.RegisterToSystem - Actual = Sony Xperia
-2019-06-23 17:28:21,648 INFO  liveguru.frontend.RegisterToSystem - Expected = Sony Xperia
-2019-06-23 17:28:21,648 INFO  liveguru.frontend.RegisterToSystem - Compare value = true
-2019-06-23 17:28:21,649 INFO  liveguru.frontend.RegisterToSystem - ===PASSED===
-2019-06-23 17:28:21,679 INFO  liveguru.frontend.RegisterToSystem - CompareProduct - Step 07 : Closed child window
-2019-06-23 17:28:24,769 INFO  liveguru.frontend.RegisterToSystem - SharedWishListByEmail - Step 01 : Open TV Page
-2019-06-23 17:28:25,859 INFO  liveguru.frontend.RegisterToSystem - SharedWishListByEmail - Step 02 : ADD LG LCD to your wishlist
-2019-06-23 17:28:27,324 INFO  liveguru.frontend.RegisterToSystem - SharedWishListByEmail - Step 03 : Verify Product are added into wishlist
-2019-06-23 17:28:27,358 INFO  liveguru.frontend.RegisterToSystem - Actual = LG LCD has been added to your wishlist. Click here to continue shopping.
-2019-06-23 17:28:27,358 INFO  liveguru.frontend.RegisterToSystem - Expected = LG LCD has been added to your wishlist. Click here to continue shopping.
-2019-06-23 17:28:27,359 INFO  liveguru.frontend.RegisterToSystem - Compare value = true
-2019-06-23 17:28:27,359 INFO  liveguru.frontend.RegisterToSystem - ===PASSED===
-2019-06-23 17:28:27,359 INFO  liveguru.frontend.RegisterToSystem - SharedWishListByEmail - Step 04 : Click to share wishlist button
-2019-06-23 17:28:28,168 INFO  liveguru.frontend.RegisterToSystem - SharedWishListByEmail - Step 05 : Input into form
-2019-06-23 17:28:28,421 INFO  liveguru.frontend.RegisterToSystem - SharedWishListByEmail - Step 04 : Click to share wishlist button
-2019-06-23 17:28:29,474 INFO  liveguru.frontend.RegisterToSystem - Actual = Your Wishlist has been shared.
-2019-06-23 17:28:29,474 INFO  liveguru.frontend.RegisterToSystem - Expected = Your Wishlist has been shared.
-2019-06-23 17:28:29,474 INFO  liveguru.frontend.RegisterToSystem - Compare value = true
-2019-06-23 17:28:29,474 INFO  liveguru.frontend.RegisterToSystem - ===PASSED===
-2019-06-23 17:28:29,496 INFO  liveguru.frontend.RegisterToSystem - Actual = LG LCD
-2019-06-23 17:28:29,497 INFO  liveguru.frontend.RegisterToSystem - Expected = LG LCD
-2019-06-23 17:28:29,497 INFO  liveguru.frontend.RegisterToSystem - Compare value = true
-2019-06-23 17:28:29,497 INFO  liveguru.frontend.RegisterToSystem - ===PASSED===
-2019-06-23 17:28:29,498 INFO  liveguru.frontend.RegisterToSystem - AddYourReview - Step 01 : Open TV Page
-2019-06-23 17:28:44,069 INFO  liveguru.frontend.RegisterToSystem - Actual = $5.00
-2019-06-23 17:28:44,070 INFO  liveguru.frontend.RegisterToSystem - Expected = $5.00
-2019-06-23 17:28:44,070 INFO  liveguru.frontend.RegisterToSystem - Compare value = true
-2019-06-23 17:28:44,070 INFO  liveguru.frontend.RegisterToSystem - ===PASSED===
+2019-06-24 13:50:22,838 INFO  liveguru.frontend.RegisterToSystem - Register - Step 01 : click to Register button
+2019-06-24 13:50:23,463 INFO  liveguru.frontend.RegisterToSystem - Register - Step 02 : Verify Register Page is displayed
+2019-06-24 13:50:23,514 INFO  liveguru.frontend.RegisterToSystem - ===PASSED==
+2019-06-24 13:50:23,516 INFO  liveguru.frontend.RegisterToSystem - Register - Step 03 : Input to all field and click Register button
+2019-06-24 13:50:25,457 INFO  liveguru.frontend.RegisterToSystem - Verify Info - Step 01 : Open Account Info page
+2019-06-24 13:50:25,960 INFO  liveguru.frontend.RegisterToSystem - Verify Info - Step 02 : Verify info is correcttly
+2019-06-24 13:50:25,975 INFO  liveguru.frontend.RegisterToSystem - Actual = huyen
+2019-06-24 13:50:25,975 INFO  liveguru.frontend.RegisterToSystem - Expected = huyen
+2019-06-24 13:50:25,975 INFO  liveguru.frontend.RegisterToSystem - Compare value = true
+2019-06-24 13:50:25,975 INFO  liveguru.frontend.RegisterToSystem - ===PASSED===
+2019-06-24 13:50:25,989 INFO  liveguru.frontend.RegisterToSystem - Actual = tran
+2019-06-24 13:50:25,989 INFO  liveguru.frontend.RegisterToSystem - Expected = tran
+2019-06-24 13:50:25,989 INFO  liveguru.frontend.RegisterToSystem - Compare value = true
+2019-06-24 13:50:25,989 INFO  liveguru.frontend.RegisterToSystem - ===PASSED===
+2019-06-24 13:50:26,006 INFO  liveguru.frontend.RegisterToSystem - Actual = thi
+2019-06-24 13:50:26,006 INFO  liveguru.frontend.RegisterToSystem - Expected = thi
+2019-06-24 13:50:26,006 INFO  liveguru.frontend.RegisterToSystem - Compare value = true
+2019-06-24 13:50:26,006 INFO  liveguru.frontend.RegisterToSystem - ===PASSED===
+2019-06-24 13:50:26,007 INFO  liveguru.frontend.RegisterToSystem - Verify Cost - Step 01 : Open Mobile Page
+2019-06-24 13:50:27,590 INFO  liveguru.frontend.RegisterToSystem - Verify Info - Step 02 : get Price at the list of product
+2019-06-24 13:50:30,014 INFO  liveguru.frontend.RegisterToSystem - Verify Info - Step 03 : get Price at the product detail
+2019-06-24 13:50:30,042 INFO  liveguru.frontend.RegisterToSystem - Verify Info - Step 04 : Verify price on both is equal
+2019-06-24 13:50:30,042 INFO  liveguru.frontend.RegisterToSystem - Actual = $100.00
+2019-06-24 13:50:30,042 INFO  liveguru.frontend.RegisterToSystem - Expected = $100.00
+2019-06-24 13:50:30,042 INFO  liveguru.frontend.RegisterToSystem - Compare value = true
+2019-06-24 13:50:30,042 INFO  liveguru.frontend.RegisterToSystem - ===PASSED===
+2019-06-24 13:50:30,044 INFO  liveguru.frontend.RegisterToSystem - Verify Discount - Step 01 : Open Mobile Page
+2019-06-24 13:50:30,989 INFO  liveguru.frontend.RegisterToSystem - Verify Discount - Step 02 : Click to Iphone
+2019-06-24 13:50:32,277 INFO  liveguru.frontend.RegisterToSystem - Verify Discount - Step 03 : Input to discount textbox
+2019-06-24 13:50:32,366 INFO  liveguru.frontend.RegisterToSystem - Verify Discount - Step 04 : Click to apply button
+2019-06-24 13:50:33,502 INFO  liveguru.frontend.RegisterToSystem - Verify Discount - Step 05 : Verify discount amount and grand total is correct
+2019-06-24 13:50:33,537 INFO  liveguru.frontend.RegisterToSystem - Actual = -$25.00
+2019-06-24 13:50:33,537 INFO  liveguru.frontend.RegisterToSystem - Expected = -$25.00
+2019-06-24 13:50:33,537 INFO  liveguru.frontend.RegisterToSystem - Compare value = true
+2019-06-24 13:50:33,537 INFO  liveguru.frontend.RegisterToSystem - ===PASSED===
+2019-06-24 13:50:33,563 INFO  liveguru.frontend.RegisterToSystem - Actual = $500.00
+2019-06-24 13:50:33,563 INFO  liveguru.frontend.RegisterToSystem - Expected = $475.00
+2019-06-24 13:50:33,563 INFO  liveguru.frontend.RegisterToSystem - Compare value = false
+2019-06-24 13:50:33,563 INFO  liveguru.frontend.RegisterToSystem - ===FAILED===
+2019-06-24 13:50:33,566 INFO  liveguru.frontend.RegisterToSystem - Verify Quantity Box - Step 01 : Open Mobile Page
+2019-06-24 13:50:34,057 INFO  liveguru.frontend.RegisterToSystem - Verify Quantity Box - Step 02 : Click Add To Card Sony Xperia
+2019-06-24 13:50:35,413 INFO  liveguru.frontend.RegisterToSystem - Verify Quantity Box - Step 03 : Clear quantity Textbox
+2019-06-24 13:50:35,488 INFO  liveguru.frontend.RegisterToSystem - Verify Quantity Box - Step 04 : Click to apply button
+2019-06-24 13:50:35,544 INFO  liveguru.frontend.RegisterToSystem - Verify Quantity Box - Step 05 : Click to update button
+2019-06-24 13:50:36,745 INFO  liveguru.frontend.RegisterToSystem - Verify Quantity Box - Step 06 : Verify Error message
+2019-06-24 13:50:36,774 INFO  liveguru.frontend.RegisterToSystem - Actual = * The maximum quantity allowed for purchase is 500.
+2019-06-24 13:50:36,774 INFO  liveguru.frontend.RegisterToSystem - Expected = * The maximum quantity allowed for purchase is 500.
+2019-06-24 13:50:36,774 INFO  liveguru.frontend.RegisterToSystem - Compare value = true
+2019-06-24 13:50:36,774 INFO  liveguru.frontend.RegisterToSystem - ===PASSED===
+2019-06-24 13:50:36,774 INFO  liveguru.frontend.RegisterToSystem - Verify Quantity Box - Step 07 : Click to Empty button
+2019-06-24 13:50:37,767 INFO  liveguru.frontend.RegisterToSystem - ===PASSED==
+2019-06-24 13:50:37,769 INFO  liveguru.frontend.RegisterToSystem - CompareProduct - Step 01 : Open Mobile Page
+2019-06-24 13:50:38,235 INFO  liveguru.frontend.RegisterToSystem - CompareProduct - Step 02 : Add Sony Xperia to compare
+2019-06-24 13:50:39,573 INFO  liveguru.frontend.RegisterToSystem - CompareProduct - Step 03 : Add IPhone to compare
+2019-06-24 13:50:40,878 INFO  liveguru.frontend.RegisterToSystem - CompareProduct - Step 04 : Click to compare button
+2019-06-24 13:50:42,394 INFO  liveguru.frontend.RegisterToSystem - CompareProduct - Step 05 : Verify Heading is Compare Products
+2019-06-24 13:50:42,427 INFO  liveguru.frontend.RegisterToSystem - ===PASSED==
+2019-06-24 13:50:42,427 INFO  liveguru.frontend.RegisterToSystem - CompareProduct - Step 06 : Verify Sony Xperia and IPhone is present
+2019-06-24 13:50:42,460 INFO  liveguru.frontend.RegisterToSystem - Actual = IPhone
+2019-06-24 13:50:42,460 INFO  liveguru.frontend.RegisterToSystem - Expected = IPhone
+2019-06-24 13:50:42,460 INFO  liveguru.frontend.RegisterToSystem - Compare value = true
+2019-06-24 13:50:42,460 INFO  liveguru.frontend.RegisterToSystem - ===PASSED===
+2019-06-24 13:50:42,477 INFO  liveguru.frontend.RegisterToSystem - Actual = Sony Xperia
+2019-06-24 13:50:42,477 INFO  liveguru.frontend.RegisterToSystem - Expected = Sony Xperia
+2019-06-24 13:50:42,477 INFO  liveguru.frontend.RegisterToSystem - Compare value = true
+2019-06-24 13:50:42,477 INFO  liveguru.frontend.RegisterToSystem - ===PASSED===
+2019-06-24 13:50:42,497 INFO  liveguru.frontend.RegisterToSystem - CompareProduct - Step 07 : Closed child window
+2019-06-24 13:50:45,569 INFO  liveguru.frontend.RegisterToSystem - SharedWishListByEmail - Step 01 : Open TV Page
+2019-06-24 13:50:46,593 INFO  liveguru.frontend.RegisterToSystem - SharedWishListByEmail - Step 02 : ADD LG LCD to your wishlist
+2019-06-24 13:50:47,980 INFO  liveguru.frontend.RegisterToSystem - SharedWishListByEmail - Step 03 : Verify Product are added into wishlist
+2019-06-24 13:50:48,025 INFO  liveguru.frontend.RegisterToSystem - Actual = LG LCD has been added to your wishlist. Click here to continue shopping.
+2019-06-24 13:50:48,025 INFO  liveguru.frontend.RegisterToSystem - Expected = LG LCD has been added to your wishlist. Click here to continue shopping.
+2019-06-24 13:50:48,025 INFO  liveguru.frontend.RegisterToSystem - Compare value = true
+2019-06-24 13:50:48,025 INFO  liveguru.frontend.RegisterToSystem - ===PASSED===
+2019-06-24 13:50:48,025 INFO  liveguru.frontend.RegisterToSystem - SharedWishListByEmail - Step 04 : Click to share wishlist button
+2019-06-24 13:50:48,832 INFO  liveguru.frontend.RegisterToSystem - SharedWishListByEmail - Step 05 : Input into form
+2019-06-24 13:50:49,061 INFO  liveguru.frontend.RegisterToSystem - SharedWishListByEmail - Step 04 : Click to share wishlist button
+2019-06-24 13:50:50,186 INFO  liveguru.frontend.RegisterToSystem - Actual = Your Wishlist has been shared.
+2019-06-24 13:50:50,186 INFO  liveguru.frontend.RegisterToSystem - Expected = Your Wishlist has been shared.
+2019-06-24 13:50:50,187 INFO  liveguru.frontend.RegisterToSystem - Compare value = true
+2019-06-24 13:50:50,187 INFO  liveguru.frontend.RegisterToSystem - ===PASSED===
+2019-06-24 13:50:50,207 INFO  liveguru.frontend.RegisterToSystem - Actual = LG LCD
+2019-06-24 13:50:50,207 INFO  liveguru.frontend.RegisterToSystem - Expected = LG LCD
+2019-06-24 13:50:50,207 INFO  liveguru.frontend.RegisterToSystem - Compare value = true
+2019-06-24 13:50:50,207 INFO  liveguru.frontend.RegisterToSystem - ===PASSED===
+2019-06-24 13:50:50,208 INFO  liveguru.frontend.RegisterToSystem - AddYourReview - Step 01 : Open TV Page
+2019-06-24 13:51:01,466 INFO  liveguru.frontend.RegisterToSystem - Actual = $5.00
+2019-06-24 13:51:01,466 INFO  liveguru.frontend.RegisterToSystem - Expected = $5.00
+2019-06-24 13:51:01,466 INFO  liveguru.frontend.RegisterToSystem - Compare value = true
+2019-06-24 13:51:01,466 INFO  liveguru.frontend.RegisterToSystem - ===PASSED===

@@ -16,8 +16,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import liveguru.frontend.AbstractPageUI;
-import pageObjects.AdvancedSearchResultPageObject;
-import pageObjects.CheckOutCartPageObject;
+import pageObjects.FrontEnd_AdvancedSearchResultPageObject;
+import pageObjects.FrontEnd_CheckOutCartPageObject;
 
 public class AbstractPage {
 	WebDriverWait explicit;
@@ -677,7 +677,7 @@ public class AbstractPage {
 		return getTextElement(driver, AbstractPageUI.DYNAMIC_SUCCESS_MESSAGE);
 	}
 
-	public AdvancedSearchResultPageObject clickToDynamicButton(WebDriver driver, String fieldName) {
+	public FrontEnd_AdvancedSearchResultPageObject clickToDynamicButton(WebDriver driver, String fieldName) {
 		clickToElement(driver, AbstractPageUI.DYNAMIC_BUTTON_EMPTY_UPDATE_COMPARE_SHARE_WISHLIST, fieldName);
 		return PageFactoryManage.getAdvancedSearchResultPage(driver);
 	}
@@ -690,7 +690,7 @@ public class AbstractPage {
 		clickToElement(driver, AbstractPageUI.DYNAMIC_PRODUCT_IMAGE_TO_CLICK, fieldName);
 	}
 
-	public CheckOutCartPageObject clickToAddToCardButton(WebDriver driver, String values) {
+	public FrontEnd_CheckOutCartPageObject clickToAddToCardButton(WebDriver driver, String values) {
 		clickToElement(driver, AbstractPageUI.DYNAMIC_ADD_TO_CART_BUTTON, values);
 		return PageFactoryManage.getCheckOutCartPage(driver);
 	}
@@ -707,5 +707,8 @@ public class AbstractPage {
 		return getTextElement(driver, AbstractPageUI.DYNAMIC_PRODUCT_PRICE_DETAIL, fieldName);
 	}
 
+	public String getProductName(WebDriver driver, String fieldName) {
+		return getTextElement(driver, AbstractPageUI.PRODUCT_NAME, fieldName);
+	}
 
 }

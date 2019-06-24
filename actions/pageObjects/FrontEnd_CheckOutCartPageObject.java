@@ -7,8 +7,8 @@ import commons.PageFactoryManage;
 import liveguru.frontend.AbstractPageUI;
 import liveguru.frontend.CheckOutCartPageUI;
 
-public class CheckOutCartPageObject extends AbstractPage{
-	public CheckOutCartPageObject(WebDriver driver) {
+public class FrontEnd_CheckOutCartPageObject extends AbstractPage{
+	public FrontEnd_CheckOutCartPageObject(WebDriver driver) {
 		super();
 		this.driver = driver;
 	}
@@ -39,7 +39,7 @@ public class CheckOutCartPageObject extends AbstractPage{
 		System.out.println("parent window is " + parentWindow);
 		closeAllWithoutParentWindows(driver, parentWindow);
 	}
-	public TVPageObject clickToTVButton(String fielName) {
+	public FrontEnd_TVPageObject clickToTVButton(String fielName) {
 		waitForElementVisible(driver, liveguru.frontend.AbstractPageUI.DYNAMIC_MENU_TAB, fielName);
 		clickToElement(driver, liveguru.frontend.AbstractPageUI.DYNAMIC_MENU_TAB, fielName);
 		return PageFactoryManage.getTVPage(driver);
@@ -58,7 +58,7 @@ public class CheckOutCartPageObject extends AbstractPage{
 	public String getOrderCode() {
 		return getTextElement(driver, CheckOutCartPageUI.ORDER_CODE);
 	}
-	public HomePageObject clickToLogo() {
+	public FrontEnd_HomePageObject clickToLogo() {
 		clickToElementByJS(driver, AbstractPageUI.HOME_PAGE_LOGO);
 		return PageFactoryManage.getHomePage(driver);
 	}

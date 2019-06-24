@@ -10,33 +10,33 @@ import org.testng.annotations.Test;
 
 import commons.AbstractTest;
 import commons.PageFactoryManage;
-import pageObjects.AccountInformationPageObject;
-import pageObjects.AdvancedSearchPageObject;
-import pageObjects.AdvancedSearchResultPageObject;
-import pageObjects.CheckOutCartPageObject;
-import pageObjects.HomePageObject;
-import pageObjects.MobilePageObject;
-import pageObjects.RegisterPageObject;
-import pageObjects.TVPageObject;
+import pageObjects.FrontEnd_AccountInformationPageObject;
+import pageObjects.FrontEnd_AdvancedSearchPageObject;
+import pageObjects.FrontEnd_AdvancedSearchResultPageObject;
+import pageObjects.FrontEnd_CheckOutCartPageObject;
+import pageObjects.FrontEnd_HomePageObject;
+import pageObjects.FrontEnd_MobilePageObject;
+import pageObjects.FrontEnd_RegisterPageObject;
+import pageObjects.FrontEnd_TVPageObject;
 
 public class RegisterToSystem extends AbstractTest {
 	WebDriver driver;
 	String firstName, middleName, lastName, emailAddress, password, confirmPassword, priceAtList, priceAtDetail, mobilePageUrl, coupon;
-	String quantityMax, tvPageUrl, msgToShareWishList, zipCode, address, city, phoneNumber, orderCode, homePageUrl;
-	HomePageObject homePage;
-	RegisterPageObject registerPage;
-	AccountInformationPageObject accountInfoPage;
-	MobilePageObject mobilePage;
-	CheckOutCartPageObject checkoutCartPage;
-	TVPageObject tvPage;
-	AdvancedSearchPageObject advancedSearchPage;
-	AdvancedSearchResultPageObject advanceSearchResultPage;
+	String quantityMax, tvPageUrl, msgToShareWishList, zipCode, address, city, phoneNumber, orderCode, homePageUrl,advancedSearchPagerUrl;
+	FrontEnd_HomePageObject homePage;
+	FrontEnd_RegisterPageObject registerPage;
+	FrontEnd_AccountInformationPageObject accountInfoPage;
+	FrontEnd_MobilePageObject mobilePage;
+	FrontEnd_CheckOutCartPageObject checkoutCartPage;
+	FrontEnd_TVPageObject tvPage;
+	FrontEnd_AdvancedSearchPageObject advancedSearchPage;
+	FrontEnd_AdvancedSearchResultPageObject advanceSearchResultPage;
 
 	@Parameters("browser")
 	@BeforeTest
 	public void beforeTest(String browserName) {
 		driver = openMultiBrowser(browserName);
-		homePage = new HomePageObject(driver);
+		homePage = new FrontEnd_HomePageObject(driver);
 		firstName = "huyen";
 		middleName = "tran";
 		lastName = "thi";
@@ -252,12 +252,21 @@ public class RegisterToSystem extends AbstractTest {
 	public void TC_11_AdvanceSearchFunction() {
 		homePage = checkoutCartPage.clickToLogo();
 		advancedSearchPage = homePage.clickToAdvancedSearchLink();
+		advancedSearchPagerUrl = advancedSearchPage.getCurrentUrl(driver);
 		advancedSearchPage.inputToDynamicTexboxField(driver, "1", "price");
 		advancedSearchPage.inputToDynamicTexboxField(driver, "150", "price_to");
 		advanceSearchResultPage = advancedSearchPage.clickToSearchButton();
-		System.out.println(advanceSearchResultPage.getPriceOfProductAtList(driver, "Sony Xperia"));
-		System.out.println(advanceSearchResultPage.getPriceAfterSaleOff(driver, "Samsung Galaxy"));
+		System.out.println(advanceSearchResultPage.getProductName(driver, "Sony Xperia") + advanceSearchResultPage.getPriceOfProductAtList(driver, "Sony Xperia"));
+		System.out.println(advanceSearchResultPage.getProductName(driver, "Samsung Galaxy")  + advanceSearchResultPage.getPriceAfterSaleOff(driver, "Samsung Galaxy"));
+		advancedSearchPage = advanceSearchResultPage.backToAdvanceSearchPage();
+		advancedSearchPage.sleepInSeconds(5000);
+		advancedSearchPage.inputToDynamicTexboxField(driver, "151", "price");
+		advancedSearchPage.inputToDynamicTexboxField(driver, "1000", "price_to");
+		advanceSearchResultPage = advancedSearchPage.clickToSearchButton();
 
+		System.out.println(advanceSearchResultPage.getProductName(driver, "IPhone") + advanceSearchResultPage.getPriceOfProductAtList(driver, "IPhone"));
+		System.out.println(advanceSearchResultPage.getProductName(driver, "LG LCD")  + advanceSearchResultPage.getPriceAfterSaleOff(driver, "LG LCD"));
+		System.out.println(advanceSearchResultPage.getProductName(driver, "Samsung LCD")  + advanceSearchResultPage.getPriceOfProductAtList(driver, "Samsung LCD"));
 	}
 
 	public int ramdomNumber() {

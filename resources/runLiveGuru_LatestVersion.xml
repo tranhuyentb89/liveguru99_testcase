@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite" parallel="false">
+	<test name="RUN ON CHROME">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="liveguru.frontend.RegisterToSystem" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

@@ -7,14 +7,14 @@ import commons.PageFactoryManage;
 import liveguru.frontend.AbstractPageUI;
 import liveguru.frontend.HomePageUI;
 
-public class HomePageObject extends AbstractPage{
-	public HomePageObject(WebDriver driver) {
+public class FrontEnd_HomePageObject extends AbstractPage{
+	public FrontEnd_HomePageObject(WebDriver driver) {
 		super();
 		this.driver = driver;
 	}
 
 	WebDriver driver;
-	public RegisterPageObject clickToRegisterButton(WebDriver driver2, String fieldName) {
+	public FrontEnd_RegisterPageObject clickToRegisterButton(WebDriver driver2, String fieldName) {
 		clickToElement(driver, AbstractPageUI.REGISTER_LINK, fieldName);
 		return PageFactoryManage.getRegisterPage(driver);
 	}
@@ -23,7 +23,7 @@ public class HomePageObject extends AbstractPage{
 		clickToElement(driver, HomePageUI.ACCOUNT_LINK);
 	}
 
-	public AdvancedSearchPageObject clickToAdvancedSearchLink() {
+	public FrontEnd_AdvancedSearchPageObject clickToAdvancedSearchLink() {
 		clickToElement(driver, HomePageUI.ADVANCED_SEARCH_LINK);
 		return PageFactoryManage.getAdvancedSearchPage(driver);
 	}

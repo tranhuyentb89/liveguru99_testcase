@@ -6,8 +6,8 @@ import commons.AbstractPage;
 import liveguru.frontend.HomePageUI;
 import liveguru.frontend.RegisterPageUI;
 
-public class RegisterPageObject extends AbstractPage{
-	public RegisterPageObject(WebDriver driver) {
+public class FrontEnd_RegisterPageObject extends AbstractPage{
+	public FrontEnd_RegisterPageObject(WebDriver driver) {
 		super();
 		this.driver = driver;
 	}
