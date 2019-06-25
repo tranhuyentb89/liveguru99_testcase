@@ -2,6 +2,7 @@ package commons;
 
 import org.openqa.selenium.WebDriver;
 
+import pageObjects.BackEnd_HomePageObject;
 import pageObjects.FrontEnd_AccountInformationPageObject;
 import pageObjects.FrontEnd_AdvancedSearchPageObject;
 import pageObjects.FrontEnd_AdvancedSearchResultPageObject;
@@ -42,6 +43,11 @@ public class PageFactoryManage {
 
 	public static FrontEnd_AdvancedSearchResultPageObject getAdvancedSearchResultPage(WebDriver driver) {
 		return new FrontEnd_AdvancedSearchResultPageObject(driver);
+	}
+
+	public static BackEnd_HomePageObject getBackendHomePage(WebDriver driver) {
+		// TODO Auto-generated method stub
+		return new BackEnd_HomePageObject(driver);
 	}
 	
 

@@ -15,6 +15,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import liveguru.backend.HomePageUI;
 import liveguru.frontend.AbstractPageUI;
 import pageObjects.FrontEnd_AdvancedSearchResultPageObject;
 import pageObjects.FrontEnd_CheckOutCartPageObject;
@@ -194,7 +195,7 @@ public class AbstractPage {
 		}
 	}
 	
-	public void selectCustomDropdown(WebDriver driver, String parentXpath, String childXpath, String valueExpected, String...values) {
+	public void selectDynamicCustomDropdown(WebDriver driver, String parentXpath, String childXpath, String valueExpected, String...values) {
 		parentXpath = String.format(parentXpath, (Object[]) values);
 		childXpath = String.format(childXpath, (Object[]) values);
 		JavascriptExecutor javascript;
@@ -222,7 +223,7 @@ public class AbstractPage {
 	}
 
 	public void selectItemInDynamicDropdown(WebDriver driver, String valueExpected, String parent, String child) {
-		selectCustomDropdown(driver, AbstractPageUI.DYNAMIC_PARENT_XPATH, AbstractPageUI.DYNAMIC_CHILD_XPATH, valueExpected, parent, child);
+		selectDynamicCustomDropdown(driver, AbstractPageUI.DYNAMIC_PARENT_XPATH, AbstractPageUI.DYNAMIC_CHILD_XPATH, valueExpected, parent, child);
 	}
 	public void sleepInSeconds(long timeInSecond) {
 		try {
@@ -300,6 +301,13 @@ public class AbstractPage {
 
 	public void hoverToElement(WebDriver driver, String locator) {
 
+		WebElement element = driver.findElement(By.xpath(locator));
+		Actions action = new Actions(driver);
+		action.moveToElement(element);
+	}
+	
+	public void hoverToElement(WebDriver driver, String locator, String...values) {
+		locator = String.format(locator, (Object[]) values);
 		WebElement element = driver.findElement(By.xpath(locator));
 		Actions action = new Actions(driver);
 		action.moveToElement(element);
@@ -709,6 +717,16 @@ public class AbstractPage {
 
 	public String getProductName(WebDriver driver, String fieldName) {
 		return getTextElement(driver, AbstractPageUI.PRODUCT_NAME, fieldName);
+	}
+	
+	public void clickToSubMenu(WebDriver driver, String navBar, String subMenu) {
+		clickToElement(driver, AbstractPageUI.DYNAMIC_LINK, navBar);
+		hoverToElement(driver, AbstractPageUI.DYNAMIC_LINK, subMenu);
+		clickToElement(driver, AbstractPageUI.DYNAMIC_LINK, subMenu);
+	}
+	
+	public void selectItemInStatusBackEnd(WebDriver driver, String valueExpected) {
+		selectCustomDropdown(driver, HomePageUI.DROPDOWN_PARENT_STATUS, HomePageUI.DROPDOWN_CHILD_OF_STATUS,valueExpected );
 	}
 
 }

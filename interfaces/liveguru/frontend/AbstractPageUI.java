@@ -25,4 +25,6 @@ public class AbstractPageUI {
 	
 	//Xpath of backend part
 	public static final String DYNAMIC_BUTTON ="//input[@title='%s']";
+	public static final String DYNAMIC_LINK ="//div[@class='nav-bar']//span[text()='%s']";
+	
 }
