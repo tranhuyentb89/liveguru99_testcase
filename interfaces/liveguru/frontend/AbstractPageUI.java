@@ -22,4 +22,7 @@ public class AbstractPageUI {
 	public static final String DYNAMIC_SHIPPING_PAYMENT_BUTTON_CONTINUE ="//div[@id='%s']/button";
 	public static final String HOME_PAGE_LOGO ="//a[@class='logo']";
 	public static final String PRODUCT_NAME ="//h2[@class='product-name']/a[@title='%s']";
+	
+	//Xpath of backend part
+	public static final String DYNAMIC_BUTTON ="//input[@title='%s']";
 }

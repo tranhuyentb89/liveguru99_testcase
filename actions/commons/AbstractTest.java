@@ -2,15 +2,12 @@ package commons;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.joda.time.DateTime;
-import org.joda.time.LocalDate;
-import org.joda.time.format.DateTimeFormatter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -53,7 +50,7 @@ public class AbstractTest {
 		return driver;
 	}
 	
-	protected WebDriver openMultiBrowser(String browserName, String driverVersion) {
+	protected WebDriver openBrowser(String browserName) {
 		if (browserName.equalsIgnoreCase("firefox")) {
 
 			WebDriverManager.firefoxdriver().version("0.24.0").setup();
@@ -71,7 +68,7 @@ public class AbstractTest {
 			options.addArguments("headless");
 			driver = new ChromeDriver(options);
 		}
-		driver.get("http://live.guru99.com/");
+		driver.get("http://live.guru99.com/index.php/backendlogin");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		return driver;
