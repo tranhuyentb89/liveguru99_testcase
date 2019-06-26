@@ -469,6 +469,15 @@ public class AbstractPage {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		return js.executeScript("arguments[0].click();", element);
 	}
+	
+	public Object clickToElementByJS(WebDriver driver, String locator, String...values) {
+		locator = String.format(locator, (Object[]) values);
+		WebElement element = driver.findElement(By.xpath(locator));
+		// highlightElement(driver, xpathName);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		return js.executeScript("arguments[0].click();", element);
+	}
+
 
 	public Object sendkeyToElementByJS(WebDriver driver, String xpathName, String value) {
 		WebElement element = driver.findElement(By.xpath(xpathName));
