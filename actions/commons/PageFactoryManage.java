@@ -2,6 +2,7 @@ package commons;
 
 import org.openqa.selenium.WebDriver;
 
+import pageObjects.BackEndSaleOrderPageObject;
 import pageObjects.BackEnd_HomePageObject;
 import pageObjects.FrontEnd_AccountInformationPageObject;
 import pageObjects.FrontEnd_AdvancedSearchPageObject;
@@ -48,6 +49,10 @@ public class PageFactoryManage {
 	public static BackEnd_HomePageObject getBackendHomePage(WebDriver driver) {
 		// TODO Auto-generated method stub
 		return new BackEnd_HomePageObject(driver);
+	}
+
+	public static BackEndSaleOrderPageObject getBackendSaleOrderPage(WebDriver driver) {
+		return new BackEndSaleOrderPageObject(driver);
 	}
 	
 

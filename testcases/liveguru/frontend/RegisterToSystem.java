@@ -22,7 +22,8 @@ import pageObjects.FrontEnd_TVPageObject;
 public class RegisterToSystem extends AbstractTest {
 	WebDriver driver;
 	String firstName, middleName, lastName, emailAddress, password, confirmPassword, priceAtList, priceAtDetail, mobilePageUrl, coupon;
-	String quantityMax, tvPageUrl, msgToShareWishList, zipCode, address, city, phoneNumber, orderCode, homePageUrl,advancedSearchPagerUrl;
+	String quantityMax, msgToShareWishList, zipCode, address, city, phoneNumber, orderCode, homePageUrl,advancedSearchPagerUrl;
+	public static String tvPageUrl;
 	FrontEnd_HomePageObject homePage;
 	FrontEnd_RegisterPageObject registerPage;
 	FrontEnd_AccountInformationPageObject accountInfoPage;

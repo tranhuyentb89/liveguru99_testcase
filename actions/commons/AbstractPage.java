@@ -1,5 +1,7 @@
 package commons;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -17,6 +19,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import liveguru.backend.HomePageUI;
 import liveguru.frontend.AbstractPageUI;
+import pageObjects.BackEndSaleOrderPageObject;
 import pageObjects.FrontEnd_AdvancedSearchResultPageObject;
 import pageObjects.FrontEnd_CheckOutCartPageObject;
 
@@ -194,8 +197,8 @@ public class AbstractPage {
 			}
 		}
 	}
-	
-	public void selectDynamicCustomDropdown(WebDriver driver, String parentXpath, String childXpath, String valueExpected, String...values) {
+
+	public void selectDynamicCustomDropdown(WebDriver driver, String parentXpath, String childXpath, String valueExpected, String... values) {
 		parentXpath = String.format(parentXpath, (Object[]) values);
 		childXpath = String.format(childXpath, (Object[]) values);
 		JavascriptExecutor javascript;
@@ -225,6 +228,7 @@ public class AbstractPage {
 	public void selectItemInDynamicDropdown(WebDriver driver, String valueExpected, String parent, String child) {
 		selectDynamicCustomDropdown(driver, AbstractPageUI.DYNAMIC_PARENT_XPATH, AbstractPageUI.DYNAMIC_CHILD_XPATH, valueExpected, parent, child);
 	}
+
 	public void sleepInSeconds(long timeInSecond) {
 		try {
 			Thread.sleep(timeInSecond);
@@ -305,8 +309,8 @@ public class AbstractPage {
 		Actions action = new Actions(driver);
 		action.moveToElement(element);
 	}
-	
-	public void hoverToElement(WebDriver driver, String locator, String...values) {
+
+	public void hoverToElement(WebDriver driver, String locator, String... values) {
 		locator = String.format(locator, (Object[]) values);
 		WebElement element = driver.findElement(By.xpath(locator));
 		Actions action = new Actions(driver);
@@ -469,15 +473,14 @@ public class AbstractPage {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		return js.executeScript("arguments[0].click();", element);
 	}
-	
-	public Object clickToElementByJS(WebDriver driver, String locator, String...values) {
+
+	public Object clickToElementByJS(WebDriver driver, String locator, String... values) {
 		locator = String.format(locator, (Object[]) values);
 		WebElement element = driver.findElement(By.xpath(locator));
 		// highlightElement(driver, xpathName);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		return js.executeScript("arguments[0].click();", element);
 	}
-
 
 	public Object sendkeyToElementByJS(WebDriver driver, String xpathName, String value) {
 		WebElement element = driver.findElement(By.xpath(xpathName));
@@ -696,6 +699,7 @@ public class AbstractPage {
 
 	public FrontEnd_AdvancedSearchResultPageObject clickToDynamicButton(WebDriver driver, String fieldName) {
 		clickToElement(driver, AbstractPageUI.DYNAMIC_BUTTON_EMPTY_UPDATE_COMPARE_SHARE_WISHLIST, fieldName);
+		sleepInSeconds(5000);
 		return PageFactoryManage.getAdvancedSearchResultPage(driver);
 	}
 
@@ -711,11 +715,11 @@ public class AbstractPage {
 		clickToElement(driver, AbstractPageUI.DYNAMIC_ADD_TO_CART_BUTTON, values);
 		return PageFactoryManage.getCheckOutCartPage(driver);
 	}
-	
+
 	public void clickToTextboxCheckbox(WebDriver driver, String fieldName) {
 		clickToElement(driver, AbstractPageUI.DYNAMIC_TEXTBOX_CHECKBOX, fieldName);
 	}
-	
+
 	public String getPriceOfProductAtList(WebDriver driver, String fieldName) {
 		return getTextElement(driver, AbstractPageUI.DYNAMIC_PRODUCT_PRICE, fieldName);
 	}
@@ -727,15 +731,42 @@ public class AbstractPage {
 	public String getProductName(WebDriver driver, String fieldName) {
 		return getTextElement(driver, AbstractPageUI.PRODUCT_NAME, fieldName);
 	}
-	
-	public void clickToSubMenu(WebDriver driver, String navBar, String subMenu) {
+
+	public BackEndSaleOrderPageObject clickToSubMenu(WebDriver driver, String navBar, String subMenu) {
 		clickToElement(driver, AbstractPageUI.DYNAMIC_LINK, navBar);
 		hoverToElement(driver, AbstractPageUI.DYNAMIC_LINK, subMenu);
 		clickToElement(driver, AbstractPageUI.DYNAMIC_LINK, subMenu);
-	}
-	
-	public void selectItemInStatusBackEnd(WebDriver driver, String valueExpected) {
-		selectCustomDropdown(driver, HomePageUI.DROPDOWN_PARENT_STATUS, HomePageUI.DROPDOWN_CHILD_OF_STATUS,valueExpected );
+		return PageFactoryManage.getBackendSaleOrderPage(driver);
 	}
 
+	public void selectItemInStatusBackEnd(WebDriver driver, String valueExpected) {
+		selectCustomDropdown(driver, HomePageUI.DROPDOWN_PARENT_STATUS, HomePageUI.DROPDOWN_CHILD_OF_STATUS, valueExpected);
+	}
+
+	public void selectFirstOrderToPrint(WebDriver driver) {
+		List<WebElement> element = driver.findElements(By.xpath(AbstractPageUI.ORDER_CHECKBOX));
+		element.get(0).click();
+		sleepInSeconds(5000);
+	}
+
+	public boolean isFileDownloaded(String downloadPath, String fileName) {
+		File dir = new File(downloadPath);
+		File[] dirContents = dir.listFiles();
+
+		for (int i = 0; i < dirContents.length; i++) {
+			if (dirContents[i].getName().equals(fileName)) {
+				// File has been found, it can now be deleted:
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public void openNewWindowInNewTab(WebDriver driver) {
+	    ((JavascriptExecutor)driver).executeScript("window.open()");
+	    ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+	    driver.switchTo().window(tabs.get(1));
+	    driver.get(Constants.BACK_END_URL);
+
+	}
 }

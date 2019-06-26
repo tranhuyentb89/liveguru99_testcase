@@ -26,5 +26,7 @@ public class AbstractPageUI {
 	//Xpath of backend part
 	public static final String DYNAMIC_BUTTON ="//input[@title='%s']";
 	public static final String DYNAMIC_LINK ="//div[@class='nav-bar']//span[text()='%s']";
+	public static final String ORDER_CHECKBOX ="//input[@name='order_ids']";
+	public static final String DYNAMIC_ERROR_MESSAGE ="//span[text()='%s']";
 	
 }
