@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import commons.AbstractPage;
 import liveguru.backend.HomePageUI;
+import liveguru.frontend.AbstractPageUI;
 
 public class BackEnd_HomePageObject extends AbstractPage {
 	public BackEnd_HomePageObject(WebDriver driver) {

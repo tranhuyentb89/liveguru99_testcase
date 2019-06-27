@@ -7,12 +7,11 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import commons.AbstractTest;
-import commons.Constants;
-import liveguru.frontend.RegisterToSystem;
-import liveguru.frontend.TVPageUI;
+import commons.PageFactoryManage;
 import pageObjects.BackEndSaleOrderPageObject;
 import pageObjects.BackEnd_HomePageObject;
 import pageObjects.BackEnd_LoginPageObject;
+import pageObjects.BackEnd_PendingReviewPageObject;
 import pageObjects.FrontEnd_TVPageObject;
 
 public class Backend_Testcase extends AbstractTest {
@@ -23,6 +22,7 @@ public class Backend_Testcase extends AbstractTest {
 	BackEnd_HomePageObject backendHomePage;
 	BackEndSaleOrderPageObject saleOrderPage;
 	FrontEnd_TVPageObject tvPage;
+	BackEnd_PendingReviewPageObject pendingReviewPage;
 
 	@Parameters("browser")
 	@BeforeClass
@@ -41,10 +41,11 @@ public class Backend_Testcase extends AbstractTest {
 		backendloginPage.inputToDynamicTexboxField(driver, password, "login");
 		backendHomePage = backendloginPage.clickToLoginButton(driver, "Login");
 		backendHomePage.clickToCloseInCommingMessage();
-		saleOrderPage = backendHomePage.clickToSubMenu(driver, "Sales", "Orders");
+		backendHomePage.openMultiplePage(driver, "Sales", "Orders");
+		saleOrderPage = PageFactoryManage.getBackendSaleOrderPage(driver);
 		saleOrderPage.selectItemInStatusBackEnd(driver, "Canceled");
-//		saleOrderPage.clickToDynamicButton(driver, "Search");
-//		saleOrderPage.selectFirstOrderToPrint(driver);
+		saleOrderPage.clickToDynamicButton(driver, "Search");
+		saleOrderPage.selectFirstOrderToPrint(driver);
 //		saleOrderPage.selectItemInActions();
 //		saleOrderPage.sleepInSeconds(5000);
 //		saleOrderPage.clickToDynamicButton(driver, "Submit");
@@ -66,9 +67,11 @@ public class Backend_Testcase extends AbstractTest {
 		tvPage.inputToDynamicTexboxField(driver, "kaka", "summary_field");
 		tvPage.inputToDynamicTexboxField(driver, "huyen", "nickname_field");
 		tvPage.clickToDynamicButton(driver, "Submit Review");
-		backendHomePage = tvPage.openBackEndPage(driver);
-		backendHomePage.sleepInSeconds(5000);
-
+		backendHomePage = tvPage.openBackEndPage();
+		backendHomePage.sleepInSeconds(5);
+		backendHomePage.clickToSubOfSubMenu(driver, "Catalog", "Reviews and Ratings", "Customer Reviews", "Pending Reviews");
+		pendingReviewPage = PageFactoryManage.getPendingReviewPage(driver);
+		pendingReviewPage.clickToHeadingButton(driver, "ID");
 	}
 
 	@AfterClass(alwaysRun=true)

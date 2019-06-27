@@ -19,7 +19,7 @@ public class FrontEnd_TVPageObject extends AbstractPage{
 		clickToElement(driver, AbstractPageUI.DYNAMIC_RATING_LINK, values);
 	}
 
-	public BackEnd_HomePageObject openBackEndPage(WebDriver driver) {
+	public BackEnd_HomePageObject openBackEndPage() {
 		driver.get(Constants.BACK_END_URL);
 		return PageFactoryManage.getBackendHomePage(driver);
 	}
