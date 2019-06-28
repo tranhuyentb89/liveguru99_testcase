@@ -21,11 +21,7 @@ public class BackEndSaleOrderPageObject extends AbstractPage{
 	}
 
 	public boolean isErrorMessageDisplayed(WebDriver driver, String dynamicValue) {
-		return isControlDisplayed(driver, AbstractPageUI.DYNAMIC_ERROR_MESSAGE , dynamicValue);
+		return isControlDisplayed(driver, AbstractPageUI.DYNAMIC_ERROR_MESSAGE_LINK_TEXT , dynamicValue);
 	}
 
-	public FrontEnd_TVPageObject openReviewFrontEndPage() {
-		driver.get(Constants.FRONT_END_REVIEW_PRODUCT_URL);
-		return PageFactoryManage.getTVPage(driver);
-	}
 }

@@ -80,9 +80,9 @@ public class RegisterToSystem extends AbstractTest {
 		accountInfoPage.sleepInSeconds(30);
 
 		log.info("Verify Info - Step 02 : Verify info is correcttly");
-		verifyEquals(accountInfoPage.getValueInTextbox(driver, "value", "firstname"), firstName);
-		verifyEquals(accountInfoPage.getValueInTextbox(driver, "value", "middlename"), middleName);
-		verifyEquals(accountInfoPage.getValueInTextbox(driver, "value", "lastname"), lastName);
+		verifyEquals(accountInfoPage.getValueOffAttributeInTextbox(driver, "value", "firstname"), firstName);
+		verifyEquals(accountInfoPage.getValueOffAttributeInTextbox(driver, "value", "middlename"), middleName);
+		verifyEquals(accountInfoPage.getValueOffAttributeInTextbox(driver, "value", "lastname"), lastName);
 	}
 
 	@Test

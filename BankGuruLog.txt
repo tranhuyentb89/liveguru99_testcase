@@ -1,1 +1,17 @@
-2019-06-28 06:52:15,924 INFO  liveguru.backend.Backend_Testcase - Input to xxxx
+2019-06-28 17:14:50,893 INFO  liveguru.backend.Backend_Testcase - TC 01 - Verify Invoice: Step 01 :Input to username/ password to login
+2019-06-28 17:14:51,156 INFO  liveguru.backend.Backend_Testcase - TC 01 - Verify Invoice:  Step 02 Click to login button
+2019-06-28 17:14:57,297 INFO  liveguru.backend.Backend_Testcase - TC 01 - Verify Invoice:  Step 03 - Click to close incomming msg
+2019-06-28 17:14:57,374 INFO  liveguru.backend.Backend_Testcase - TC 01 - Verify Invoice: Step 04: Open Order page
+2019-06-28 17:14:58,440 INFO  liveguru.backend.Backend_Testcase - TC 01 - Verify Invoice: Step 05: Select canceled invoice
+2019-06-28 17:14:58,704 INFO  liveguru.backend.Backend_Testcase - TC 01 - Verify Invoice: Step 06: click Search button
+2019-06-28 17:15:03,764 INFO  liveguru.backend.Backend_Testcase - TC 01 - Verify Invoice: Input to username/ password to login
+2019-06-28 17:15:08,846 INFO  liveguru.backend.Backend_Testcase - TC 01 -VerifyProductReviewMechanism: Open Detail product page
+2019-06-28 17:15:12,958 INFO  liveguru.backend.Backend_Testcase - TC 02 -VerifyProductReviewMechanism: Click to Add your review button
+2019-06-28 17:15:13,460 INFO  liveguru.backend.Backend_Testcase - TC 02 -VerifyProductReviewMechanism: Input to all field and click submit
+2019-06-28 17:15:19,689 INFO  liveguru.backend.Backend_Testcase - TC 03 -VerifyProductReviewMechanism: Open backend page
+2019-06-28 17:15:21,147 INFO  liveguru.backend.Backend_Testcase - TC 04 -VerifyProductReviewMechanism: Click to Pending review submenu
+2019-06-28 17:15:26,953 INFO  liveguru.backend.Backend_Testcase - TC 05 -VerifyProductReviewMechanism: Sort By ID
+2019-06-28 17:15:30,039 INFO  liveguru.backend.Backend_Testcase - TC 05 -VerifyProductReviewMechanism: Click to Edit button
+2019-06-28 17:15:31,245 INFO  liveguru.backend.Backend_Testcase - TC 05 -VerifyProductReviewMechanism: Change status from Pending to Approved
+2019-06-28 17:15:31,380 INFO  liveguru.backend.Backend_Testcase - TC 06 -VerifyProductReviewMechanism: Click To Save Reviews button
+2019-06-28 17:15:32,653 INFO  liveguru.backend.Backend_Testcase - TC 07 -VerifyProductReviewMechanism: Go to frontend page

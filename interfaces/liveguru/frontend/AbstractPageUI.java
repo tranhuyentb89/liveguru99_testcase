@@ -11,7 +11,7 @@ public class AbstractPageUI {
 	public static final String DYNAMIC_PRODUCT_IMAGE_TO_CLICK ="//a[@class='product-image' and @title='%s']";
 	public static final String DYNAMIC_PRODUCT_PRICE_DETAIL ="//span[text()='%s']/parent::div/following-sibling::div[@class='price-info']//span[@class='price']";
 	public static final String DYNAMIC_ADD_TO_CART_BUTTON ="//a[text()='%s']/parent::h2/following-sibling::div[@class='actions']//button[@class='button btn-cart']";
-	public static final String DYNAMIC_BUTTON_EMPTY_UPDATE_COMPARE_SHARE_WISHLIST="//button[@title='%s']";
+	public static final String DYNAMIC_BUTTON_TAG_NAME="//button[@title='%s']";
 	public static final String DYNAMIC_PAGE_TITLE ="//h1[text()='%s']";
 	public static final String DYNAMIC_ADD_TO_LINKS="//a[text()='%s']/parent::h2/following-sibling::div[@class='actions']//a[text()='%s']";
 	public static final String DYNAMIC_SUCCESS_MESSAGE="//li[@class='success-msg']//span";
@@ -24,10 +24,11 @@ public class AbstractPageUI {
 	public static final String PRODUCT_NAME ="//h2[@class='product-name']/a[@title='%s']";
 	
 	//Xpath of backend part
-	public static final String DYNAMIC_BUTTON ="//input[@title='%s']";
+	public static final String DYNAMIC_BUTTON_INPUT_TAG_NAME ="//input[@title='%s']";
 	public static final String DYNAMIC_LINK ="//div[@class='nav-bar']//span[text()='%s']";
-	public static final String ORDER_CHECKBOX ="//input[@name='%s']";
-	public static final String DYNAMIC_ERROR_MESSAGE ="//span[text()='%s']";
+	public static final String DYNAMIC_CHECKBOX ="//input[@name='%s']";
+	public static final String DYNAMIC_ACTION ="//a[text()='%s']";
+	public static final String DYNAMIC_ERROR_MESSAGE_LINK_TEXT ="//span[text()='%s']";
 	public static final String DYNAMIC_HEADING_BUTTON ="//tr[@class='headings']//span[text()='%s']";
 	
 }

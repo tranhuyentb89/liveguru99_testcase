@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import javax.swing.plaf.synth.SynthStyle;
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -20,8 +22,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import liveguru.backend.HomePageUI;
 import liveguru.frontend.AbstractPageUI;
 import pageObjects.BackEndSaleOrderPageObject;
+import pageObjects.BackEnd_HomePageObject;
 import pageObjects.FrontEnd_AdvancedSearchResultPageObject;
 import pageObjects.FrontEnd_CheckOutCartPageObject;
+import pageObjects.FrontEnd_TVPageObject;
 
 public class AbstractPage {
 	WebDriverWait explicit;
@@ -316,7 +320,6 @@ public class AbstractPage {
 		WebElement element = driver.findElement(By.xpath(locator));
 		Actions action = new Actions(driver);
 		action.moveToElement(element).perform();
-		;
 	}
 
 	public void sendKeyboardToElement(WebDriver driver, String locator, Keys key, String... values) {
@@ -639,35 +642,12 @@ public class AbstractPage {
 		sendKeyToElement(driver, AbstractPageUI.DYNAMIC_TEXTAREA_BOX, value, fieldName);
 	}
 
-	//
-	// public void clickToTextboxTextAreaButton(WebDriver driver, String fieldName)
-	// {
-	// clickToElement(driver, AbstractPageUI.DYNAMIC_TEXTBOX_TEXTAREA_BUTTON,
-	// fieldName);
-	// }
-	//
-	public String getValueInTextbox(WebDriver driver, String attributeName, String fieldName) {
+	public String getTextInAreaBox(WebDriver driver, String fielName) {
+		return getTextElement(driver, AbstractPageUI.DYNAMIC_TEXTAREA_BOX, fielName);
+	}
+	public String getValueOffAttributeInTextbox(WebDriver driver, String attributeName, String fieldName) {
 		return getAttributeInElement(driver, AbstractPageUI.DYNAMIC_TEXTBOX_CHECKBOX, attributeName, fieldName);
 	}
-	//
-	// public String getDynamicCannotInputNumericMessage(WebDriver driver, String
-	// fielName) {
-	// waitForElementVisible(driver, AbstractPageUI.DYNAMIC_ERROR_MESSAGE,
-	// fielName);
-	// return getTextElement(driver, AbstractPageUI.DYNAMIC_ERROR_MESSAGE,
-	// fielName);
-	// }
-	//
-	// public String getPageTitleSuccess(WebDriver driver) {
-	// waitForElementVisible(driver, AbstractPageUI.DYNAMIC_PAGE_TITLE);
-	// return getTextElement(driver, AbstractPageUI.DYNAMIC_PAGE_TITLE);
-	// }
-	//
-	// public String getDynamicTextInTable(WebDriver driver, String fieldName) {
-	// waitForElementVisible(driver, AbstractPageUI.DYNAMIC_TABLE_TEXT, fieldName);
-	// return getTextElement(driver, AbstractPageUI.DYNAMIC_TABLE_TEXT, fieldName);
-	// }
-
 	public void clearValue(WebDriver driver, String locator, String... dynamicValue) {
 		locator = String.format(locator, (Object[]) dynamicValue);
 		WebElement element = driver.findElement(By.xpath(locator));
@@ -708,10 +688,20 @@ public class AbstractPage {
 	}
 
 	public FrontEnd_AdvancedSearchResultPageObject clickToDynamicButton(WebDriver driver, String fieldName) {
-		clickToElement(driver, AbstractPageUI.DYNAMIC_BUTTON_EMPTY_UPDATE_COMPARE_SHARE_WISHLIST, fieldName);
+		clickToElement(driver, AbstractPageUI.DYNAMIC_BUTTON_TAG_NAME, fieldName);
 		sleepInSeconds(5000);
 		return PageFactoryManage.getAdvancedSearchResultPage(driver);
 	}
+	
+	public BackEnd_HomePageObject clickToLoginButton(WebDriver driver, String fieldName) {
+		clickToElement(driver, AbstractPageUI.DYNAMIC_BUTTON_INPUT_TAG_NAME, fieldName);
+		return PageFactoryManage.getBackendHomePage(driver);
+	}
+	
+	public void clickToDynamicButtonBackEndPage(WebDriver driver, String fieldName) {
+		clickToElement(driver, AbstractPageUI.DYNAMIC_BUTTON_TAG_NAME, fieldName);
+	}
+
 
 	public Object getProductName(WebDriver driver, String attributeName, String productName) {
 		return getAttributeInElement(driver, AbstractPageUI.DYNAMIC_PRODUCT_IMAGE_TO_CLICK, attributeName, productName);
@@ -792,4 +782,36 @@ public class AbstractPage {
 		clickToElement(driver, AbstractPageUI.DYNAMIC_LINK, subMenu02);
 		sleepInSeconds(5000);
 	}
+	
+	public void clickToButtonInActionColumn(WebDriver driver, String fieldName) {
+		clickToElement(driver, AbstractPageUI.DYNAMIC_ACTION, fieldName);
+	}
+	
+	public AbstractPage openBackEndPage(WebDriver driver) {
+		driver.get(Constants.BACK_END_URL);
+		return PageFactoryManage.getBackendHomePage(driver);
+	}
+	
+	public AbstractPage openReviewFrontEndPage(WebDriver driver) {
+		driver.get(Constants.FRONT_END_REVIEW_PRODUCT_URL);
+		return PageFactoryManage.getTVPage(driver);
+	}
+
+	public void clickToLinkText(WebDriver driver, String fieldName) {
+		clickToElement(driver, AbstractPageUI.DYNAMIC_ERROR_MESSAGE_LINK_TEXT, fieldName);
+	}
+	
+	public void getTextInReviewTab(WebDriver driver, String expectedValue) {
+		List<WebElement> element = driver.findElements(By.xpath("//div[@id='customer-reviews']//a"));
+		for(WebElement child : element) {
+			String getChildText = child.getText().trim().toLowerCase();
+			if(getChildText.equals(expectedValue)) {
+				System.out.println("TRUE");
+			}
+			else {
+				System.out.println("FALSE");
+			}
+		}
+	}
+
 }
