@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 
 import commons.AbstractTest;
 import commons.PageFactoryManage;
+import liveguru.frontend.AbstractPageUI;
 import pageObjects.BackEndSaleOrderPageObject;
 import pageObjects.BackEnd_HomePageObject;
 import pageObjects.BackEnd_LoginPageObject;
@@ -37,6 +38,7 @@ public class Backend_Testcase extends AbstractTest {
 
 	@Test
 	public void TC_01_VerifyInvoiceCanPrint() {
+		log.info("Input to xxxx");
 		backendloginPage.inputToDynamicTexboxField(driver, username, "username");
 		backendloginPage.inputToDynamicTexboxField(driver, password, "login");
 		backendHomePage = backendloginPage.clickToLoginButton(driver, "Login");
@@ -45,7 +47,7 @@ public class Backend_Testcase extends AbstractTest {
 		saleOrderPage = PageFactoryManage.getBackendSaleOrderPage(driver);
 		saleOrderPage.selectItemInStatusBackEnd(driver, "Canceled");
 		saleOrderPage.clickToDynamicButton(driver, "Search");
-		saleOrderPage.selectFirstOrderToPrint(driver);
+		saleOrderPage.selectFirstItemInList(driver, AbstractPageUI.ORDER_CHECKBOX, "order_ids");
 //		saleOrderPage.selectItemInActions();
 //		saleOrderPage.sleepInSeconds(5000);
 //		saleOrderPage.clickToDynamicButton(driver, "Submit");
@@ -58,7 +60,7 @@ public class Backend_Testcase extends AbstractTest {
 //		verifyTrue(saleOrderPage.isFileDownloaded("/Downloads", "invoice"));
 //		saleOrderPage.sleepInSeconds(50000);
 	}
-	@Test
+	//@Test
 	public void TC_02_VerifyProductReviewMechanism() {
 		tvPage = saleOrderPage.openReviewFrontEndPage();
 		tvPage.clickToProductToViewDetail(driver, "Samsung LCD");
@@ -72,6 +74,7 @@ public class Backend_Testcase extends AbstractTest {
 		backendHomePage.clickToSubOfSubMenu(driver, "Catalog", "Reviews and Ratings", "Customer Reviews", "Pending Reviews");
 		pendingReviewPage = PageFactoryManage.getPendingReviewPage(driver);
 		pendingReviewPage.clickToHeadingButton(driver, "ID");
+		//pendingReviewPage.selectFirstItemInList(driver);
 	}
 
 	@AfterClass(alwaysRun=true)

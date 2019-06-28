@@ -4,8 +4,6 @@
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="liveguru.frontend.RegisterToSystem" />
-			<class name="liveguru.backend.Backend_Testcase" />
-			
 		</classes>
 	</test>
 	<!-- Test -->

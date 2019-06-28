@@ -5,5 +5,5 @@
 		<classes>
 			<class name="liveguru.backend.Backend_Testcase" />
 		</classes>
-	</test> <!-- Test -->
-</suite> <!-- Suite -->
+	</test>
+</suite>

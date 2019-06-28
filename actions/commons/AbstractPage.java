@@ -137,8 +137,7 @@ public class AbstractPage {
 		select.selectByVisibleText(value);
 	}
 
-	public void selectItemInCustomDropdown(WebDriver driver, String scrollXpath, String parentXpath, String childXpath,
-			String expectedValue) throws Exception {
+	public void selectItemInCustomDropdown(WebDriver driver, String scrollXpath, String parentXpath, String childXpath, String expectedValue) throws Exception {
 		// scroll toi element (cha)
 		JavascriptExecutor javascript;
 		javascript = (JavascriptExecutor) driver;
@@ -199,8 +198,7 @@ public class AbstractPage {
 		}
 	}
 
-	public void selectDynamicCustomDropdown(WebDriver driver, String parentXpath, String childXpath,
-			String valueExpected, String... values) {
+	public void selectDynamicCustomDropdown(WebDriver driver, String parentXpath, String childXpath, String valueExpected, String... values) {
 		parentXpath = String.format(parentXpath, (Object[]) values);
 		childXpath = String.format(childXpath, (Object[]) values);
 		JavascriptExecutor javascript;
@@ -228,8 +226,7 @@ public class AbstractPage {
 	}
 
 	public void selectItemInDynamicDropdown(WebDriver driver, String valueExpected, String parent, String child) {
-		selectDynamicCustomDropdown(driver, AbstractPageUI.DYNAMIC_PARENT_XPATH, AbstractPageUI.DYNAMIC_CHILD_XPATH,
-				valueExpected, parent, child);
+		selectDynamicCustomDropdown(driver, AbstractPageUI.DYNAMIC_PARENT_XPATH, AbstractPageUI.DYNAMIC_CHILD_XPATH, valueExpected, parent, child);
 	}
 
 	public void sleepInSeconds(long timeInSecond) {
@@ -299,8 +296,9 @@ public class AbstractPage {
 		return element.isEnabled();
 	}
 
-	public void doubleClickToElement(WebDriver driver, String locator) {
-		// highlightElement(driver, locator);
+	public void doubleClickToElement(WebDriver driver, String locator, String... values) {
+		locator = String.format(locator, (Object[]) values);
+		highlightElement(driver, locator);
 		WebElement element = driver.findElement(By.xpath(locator));
 		Actions action = new Actions(driver);
 		action.doubleClick(element);
@@ -446,8 +444,7 @@ public class AbstractPage {
 		element.sendKeys(filePath);
 	}
 
-	public void uploadmultiFile(WebDriver driver, String locator, String filePath01, String filePath02,
-			String filePath03) {
+	public void uploadmultiFile(WebDriver driver, String locator, String filePath01, String filePath02, String filePath03) {
 		WebElement element = driver.findElement(By.xpath(locator));
 		element.sendKeys(filePath01 + "\n" + filePath02 + "\n" + filePath03);
 	}
@@ -456,8 +453,7 @@ public class AbstractPage {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		WebElement element = driver.findElement(By.xpath(locator));
 		String originalStyle = element.getAttribute(locator);
-		js.executeScript("arguments[0].setAttribute(arguments[1],arguments[2])", element, "style",
-				"border:3px solid red; border-style:dashed;");
+		js.executeScript("arguments[0].setAttribute(arguments[1],arguments[2])", element, "style", "border:3px solid red; border-style:dashed;");
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
@@ -522,9 +518,7 @@ public class AbstractPage {
 		try {
 			WebElement element = driver.findElement(By.xpath(locator));
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			return (boolean) js.executeScript(
-					"return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0",
-					element);
+			return (boolean) js.executeScript("return arguments[0].complete && typeof arguments[0].naturalWidth != \"undefined\" && arguments[0].naturalWidth > 0", element);
 		} catch (Exception e) {
 			e.getMessage();
 			return false;
@@ -756,16 +750,15 @@ public class AbstractPage {
 	}
 
 	public void selectItemInStatusBackEnd(WebDriver driver, String valueExpected) {
-		selectCustomDropdown(driver, HomePageUI.DROPDOWN_PARENT_STATUS, HomePageUI.DROPDOWN_CHILD_OF_STATUS,
-				valueExpected);
+		selectCustomDropdown(driver, HomePageUI.DROPDOWN_PARENT_STATUS, HomePageUI.DROPDOWN_CHILD_OF_STATUS, valueExpected);
 	}
 
-	public void selectFirstOrderToPrint(WebDriver driver) {
-		List<WebElement> element = driver.findElements(By.xpath(AbstractPageUI.ORDER_CHECKBOX));
+	public void selectFirstItemInList(WebDriver driver, String locator, String...dynamicValue) {
+		locator = String.format(locator, (Object[]) dynamicValue);
+		List<WebElement> element = driver.findElements(By.xpath(locator));
 		element.get(0).click();
 		sleepInSeconds(5000);
 	}
-
 	public boolean isFileDownloaded(String downloadPath, String fileName) {
 		File dir = new File(downloadPath);
 		File[] dirContents = dir.listFiles();
@@ -788,11 +781,10 @@ public class AbstractPage {
 	}
 
 	public void clickToHeadingButton(WebDriver driver, String dynamicValue) {
-		clickToElementByJS(driver, AbstractPageUI.DYNAMIC_HEADING_BUTTON, dynamicValue);
+		doubleClickToElement(driver, AbstractPageUI.DYNAMIC_HEADING_BUTTON, dynamicValue);
 	}
 
-	public void clickToSubOfSubMenu(WebDriver driver, String navMenu, String subMenu, String subMenu01,
-			String subMenu02) {
+	public void clickToSubOfSubMenu(WebDriver driver, String navMenu, String subMenu, String subMenu01, String subMenu02) {
 		clickToElement(driver, AbstractPageUI.DYNAMIC_LINK, navMenu);
 		hoverToElement(driver, AbstractPageUI.DYNAMIC_LINK, subMenu);
 		hoverToElement(driver, AbstractPageUI.DYNAMIC_LINK, subMenu01);
