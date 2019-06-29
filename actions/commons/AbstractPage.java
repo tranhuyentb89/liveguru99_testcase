@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import javax.swing.plaf.synth.SynthStyle;
-
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -21,11 +19,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import liveguru.backend.HomePageUI;
 import liveguru.frontend.AbstractPageUI;
-import pageObjects.BackEndSaleOrderPageObject;
 import pageObjects.BackEnd_HomePageObject;
 import pageObjects.FrontEnd_AdvancedSearchResultPageObject;
 import pageObjects.FrontEnd_CheckOutCartPageObject;
-import pageObjects.FrontEnd_TVPageObject;
 
 public class AbstractPage {
 	WebDriverWait explicit;
@@ -595,7 +591,7 @@ public class AbstractPage {
 		clickToElement(driver, AbstractPageUI.DYNAMIC_LINK, subMenu);
 		switch (subMenu) {
 		case "Orders":
-			return PageFactoryManage.getBackendSaleOrderPage(driver);
+			return PageFactoryManage.getBackendSalePage(driver);
 		case "Pending Reviews":
 			return PageFactoryManage.getPendingReviewPage(driver);
 		default:
@@ -736,7 +732,7 @@ public class AbstractPage {
 		clickToElement(driver, AbstractPageUI.DYNAMIC_LINK, navBar);
 		hoverToElement(driver, AbstractPageUI.DYNAMIC_LINK, subMenu);
 		clickToElement(driver, AbstractPageUI.DYNAMIC_LINK, subMenu);
-		return PageFactoryManage.getBackendSaleOrderPage(driver);
+		return PageFactoryManage.getBackendSalePage(driver);
 	}
 
 	public void selectItemInStatusBackEnd(WebDriver driver, String valueExpected) {
@@ -772,6 +768,7 @@ public class AbstractPage {
 
 	public void clickToHeadingButton(WebDriver driver, String dynamicValue) {
 		doubleClickToElement(driver, AbstractPageUI.DYNAMIC_HEADING_BUTTON, dynamicValue);
+		//clickToElement(driver, AbstractPageUI.DYNAMIC_HEADING_BUTTON, dynamicValue);
 	}
 
 	public void clickToSubOfSubMenu(WebDriver driver, String navMenu, String subMenu, String subMenu01, String subMenu02) {
@@ -801,17 +798,17 @@ public class AbstractPage {
 		clickToElement(driver, AbstractPageUI.DYNAMIC_ERROR_MESSAGE_LINK_TEXT, fieldName);
 	}
 	
-	public void getTextInReviewTab(WebDriver driver, String expectedValue) {
+	public boolean getTextInReviewTab(WebDriver driver, String expectedValue) {
 		List<WebElement> element = driver.findElements(By.xpath("//div[@id='customer-reviews']//a"));
 		for(WebElement child : element) {
-			String getChildText = child.getText().trim().toLowerCase();
+			String getChildText = child.getText().trim().toUpperCase();
+			System.out.println("Huyen:" + getChildText);
 			if(getChildText.equals(expectedValue)) {
-				System.out.println("TRUE");
-			}
-			else {
-				System.out.println("FALSE");
+				System.out.println(getChildText);
+				return true;
 			}
 		}
+		return false;
 	}
 
 }

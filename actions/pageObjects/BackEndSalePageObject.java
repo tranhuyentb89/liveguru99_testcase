@@ -8,8 +8,8 @@ import commons.PageFactoryManage;
 import liveguru.backend.SaleOrderPageUI;
 import liveguru.frontend.AbstractPageUI;
 
-public class BackEndSaleOrderPageObject extends AbstractPage{
-	public BackEndSaleOrderPageObject(WebDriver driver) {
+public class BackEndSalePageObject extends AbstractPage{
+	public BackEndSalePageObject(WebDriver driver) {
 		super();
 		this.driver = driver;
 	}

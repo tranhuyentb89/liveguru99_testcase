@@ -2,7 +2,7 @@ package commons;
 
 import org.openqa.selenium.WebDriver;
 
-import pageObjects.BackEndSaleOrderPageObject;
+import pageObjects.BackEndSalePageObject;
 import pageObjects.BackEnd_HomePageObject;
 import pageObjects.BackEnd_PendingReviewPageObject;
 import pageObjects.FrontEnd_AccountInformationPageObject;
@@ -52,8 +52,8 @@ public class PageFactoryManage {
 		return new BackEnd_HomePageObject(driver);
 	}
 
-	public static BackEndSaleOrderPageObject getBackendSaleOrderPage(WebDriver driver) {
-		return new BackEndSaleOrderPageObject(driver);
+	public static BackEndSalePageObject getBackendSalePage(WebDriver driver) {
+		return new BackEndSalePageObject(driver);
 	}
 
 	public static BackEnd_PendingReviewPageObject getPendingReviewPage(WebDriver driver) {

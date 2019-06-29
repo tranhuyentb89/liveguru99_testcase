@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import commons.AbstractTest;
 import commons.PageFactoryManage;
 import liveguru.frontend.AbstractPageUI;
-import pageObjects.BackEndSaleOrderPageObject;
+import pageObjects.BackEndSalePageObject;
 import pageObjects.BackEnd_HomePageObject;
 import pageObjects.BackEnd_LoginPageObject;
 import pageObjects.BackEnd_PendingReviewPageObject;
@@ -21,7 +21,7 @@ public class Backend_Testcase extends AbstractTest {
 
 	BackEnd_LoginPageObject backendloginPage;
 	BackEnd_HomePageObject backendHomePage;
-	BackEndSaleOrderPageObject saleOrderPage;
+	BackEndSalePageObject salePage;
 	FrontEnd_TVPageObject tvPage;
 	BackEnd_PendingReviewPageObject pendingReviewPage;
 
@@ -36,7 +36,7 @@ public class Backend_Testcase extends AbstractTest {
 		msgToShareWishList = "Good";
 	}
 
-	@Test
+	//@Test
 	public void TC_01_VerifyInvoiceCanPrint() {
 		log.info("TC 01 - Verify Invoice: Step 01 :Input to username/ password to login");
 		backendloginPage.inputToDynamicTexboxField(driver, username, "username");
@@ -50,16 +50,16 @@ public class Backend_Testcase extends AbstractTest {
 		
 		log.info("TC 01 - Verify Invoice: Step 04: Open Order page");
 		backendHomePage.openMultiplePage(driver, "Sales", "Orders");
-		saleOrderPage = PageFactoryManage.getBackendSaleOrderPage(driver);
+		salePage = PageFactoryManage.getBackendSalePage(driver);
 		
 		log.info("TC 01 - Verify Invoice: Step 05: Select canceled invoice");
-		saleOrderPage.selectItemInStatusBackEnd(driver, "Canceled");
+		salePage.selectItemInStatusBackEnd(driver, "Canceled");
 		
 		log.info("TC 01 - Verify Invoice: Step 06: click Search button");
-		saleOrderPage.clickToDynamicButton(driver, "Search");
+		salePage.clickToDynamicButton(driver, "Search");
 		
 		log.info("TC 01 - Verify Invoice: Input to username/ password to login");
-		saleOrderPage.selectFirstItemInList(driver, AbstractPageUI.DYNAMIC_CHECKBOX, "order_ids");
+		salePage.selectFirstItemInList(driver, AbstractPageUI.DYNAMIC_CHECKBOX, "order_ids");
 //		saleOrderPage.selectItemInActions();
 //		saleOrderPage.sleepInSeconds(5000);
 //		saleOrderPage.clickToDynamicButton(driver, "Submit");
@@ -72,10 +72,10 @@ public class Backend_Testcase extends AbstractTest {
 //		verifyTrue(saleOrderPage.isFileDownloaded("/Downloads", "invoice"));
 //		saleOrderPage.sleepInSeconds(50000);
 	}
-	@Test
+	//@Test
 	public void TC_02_VerifyProductReviewMechanism() {
 		log.info("TC 01 -VerifyProductReviewMechanism: Open Detail product page");
-		tvPage = (FrontEnd_TVPageObject) saleOrderPage.openReviewFrontEndPage(driver);
+		tvPage = (FrontEnd_TVPageObject) salePage.openReviewFrontEndPage(driver);
 		tvPage.clickToProductToViewDetail(driver, "Samsung LCD");
 		
 		log.info("TC 02 -VerifyProductReviewMechanism: Click to Add your review button");
@@ -83,7 +83,7 @@ public class Backend_Testcase extends AbstractTest {
 		
 		log.info("TC 02 -VerifyProductReviewMechanism: Input to all field and click submit");
 		tvPage.inputToDynamicTextAreaField(driver,msgToShareWishList , "review_field");
-		tvPage.inputToDynamicTexboxField(driver, "kaka", "summary_field");
+		tvPage.inputToDynamicTexboxField(driver, "Test input to summary field", "summary_field");
 		tvPage.inputToDynamicTexboxField(driver, "huyen", "nickname_field");
 		tvPage.clickToDynamicButton(driver, "Submit Review");
 		
@@ -101,8 +101,10 @@ public class Backend_Testcase extends AbstractTest {
 		log.info("TC 05 -VerifyProductReviewMechanism: Click to Edit button");
 		pendingReviewPage.clickToButtonInActionColumn(driver, "Edit");
 		nickNameBackend = pendingReviewPage.getValueOffAttributeInTextbox(driver, "value", "nickname");
-		summaryOfReviewBackend = pendingReviewPage.getValueOffAttributeInTextbox(driver, "value", "title");
+		summaryOfReviewBackend = pendingReviewPage.getValueOffAttributeInTextbox(driver, "value", "title").toUpperCase();
 		reviewDetailBackend = pendingReviewPage.getTextInAreaBox(driver, "detail");
+		
+		System.out.println(summaryOfReviewBackend);
 		
 		System.out.println("Day la summary of review backend :"+summaryOfReviewBackend);
 
@@ -116,9 +118,31 @@ public class Backend_Testcase extends AbstractTest {
 		tvPage = (FrontEnd_TVPageObject) pendingReviewPage.openReviewFrontEndPage(driver);
 		tvPage.clickToProductToViewDetail(driver, "Samsung LCD");
 		tvPage.clickToLinkText(driver, "Reviews");
-		tvPage.getTextInReviewTab(driver, summaryOfReviewBackend);
+		
+		log.info("TC 08 -VerifyProductReviewMechanism: Verify Reivews comment is shown");
+		verifyTrue(tvPage.getTextInReviewTab(driver, summaryOfReviewBackend));
 	}
 
+	@Test
+	public void TC_03_VerifySortWorkingCorrectly() {
+		backendloginPage.openUrl(driver, backendUrl);
+		if(backendloginPage.isLoginFormDisplayed()) {
+			log.info("TC 01 - Verify Invoice: Step 01 :Input to username/ password to login");
+			backendloginPage.inputToDynamicTexboxField(driver, username, "username");
+			backendloginPage.inputToDynamicTexboxField(driver, password, "login");
+			
+			log.info("TC 01 - Verify Invoice:  Step 02 Click to login button");
+			backendHomePage = backendloginPage.clickToLoginButton(driver, "Login");
+			
+			log.info("TC 01 - Verify Invoice:  Step 03 - Click to close incomming msg");
+			backendHomePage.clickToCloseInCommingMessage();
+		}
+		log.info("TC 01 - Verify Invoice: Step 04: Open Sale Invoice Page");
+		backendHomePage.openMultiplePage(driver, "Sales", "Invoices");
+		salePage = PageFactoryManage.getBackendSalePage(driver);
+		
+
+	}
 	@AfterClass(alwaysRun=true)
 	public void afterClass() {
 		closeBrowserAndDriver(driver);
