@@ -1,5 +1,7 @@
 package commons;
 
+import static org.junit.Assert.assertEquals;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -810,5 +812,32 @@ public class AbstractPage {
 		}
 		return false;
 	}
-
+	
+	public boolean sortOrNot(ArrayList<String> dropdownValues) {
+		System.out.println("number of value" + dropdownValues.size());
+		for(int i= 0 ; i < dropdownValues.size(); i++) {
+			int temp = dropdownValues.get(i).compareTo(dropdownValues.get(i+1));
+			if(temp > 1) {
+				System.out.println("i values" + i);
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public void columnIsSortOrNot(WebDriver driver) {
+//		WebElement element = driver.findElement(By.xpath("//span[text()='Invoice #']"));
+//		element.click();
+//		List<WebElement> dropdownValues = driver.findElements(By.xpath("//table[@id='sales_invoice_grid_table']//td[2]"));
+//		ArrayList<String> listValue = new ArrayList<>();
+//		for(WebElement value: dropdownValues) {
+//			System.out.println("value are " + value.getText());
+//			listValue.add(value.getText());
+//		}
+		List<WebElement> dropdownValues = driver.findElements(By.xpath("//table[@id='sales_invoice_grid_table']//td[2]"));
+		int size = dropdownValues.size();
+		String actual[] = new String[size];
+		String sorted[] = new String[size];
+		
+	}
 }

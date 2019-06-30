@@ -54,7 +54,6 @@ public class AbstractTest {
 
 	protected WebDriver openBrowser(String browserName) {
 		if (browserName.equalsIgnoreCase("firefox")) {
-
 			WebDriverManager.firefoxdriver().setup();
 			System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
 			System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, workingDir + "\\FirefoxLog.txt");
