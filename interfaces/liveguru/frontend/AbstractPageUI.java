@@ -28,7 +28,6 @@ public class AbstractPageUI {
 	public static final String DYNAMIC_LINK ="//div[@class='nav-bar']//span[text()='%s']";
 	public static final String DYNAMIC_CHECKBOX ="//input[@name='%s']";
 	public static final String DYNAMIC_ACTION ="//a[text()='%s']";
-	public static final String DYNAMIC_ERROR_MESSAGE_LINK_TEXT ="//span[text()='%s']";
-	public static final String DYNAMIC_HEADING_BUTTON ="//tr[@class='headings']//span[text()='%s']";
-	
+	public static final String DYNAMIC_ERROR_MESSAGE_LINK_TEXT_HEADER ="//span[text()='%s']";
+	public static final String INVOICE_NUMBER_COLUMN ="//table[@id='sales_invoice_grid_table']//td[%s]";
 }

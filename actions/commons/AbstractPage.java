@@ -1,6 +1,7 @@
 package commons;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import liveguru.backend.HomePageUI;
 import liveguru.frontend.AbstractPageUI;
@@ -769,7 +771,7 @@ public class AbstractPage {
 	}
 
 	public void clickToHeadingButton(WebDriver driver, String dynamicValue) {
-		doubleClickToElement(driver, AbstractPageUI.DYNAMIC_HEADING_BUTTON, dynamicValue);
+		doubleClickToElement(driver, AbstractPageUI.DYNAMIC_ERROR_MESSAGE_LINK_TEXT_HEADER, dynamicValue);
 		//clickToElement(driver, AbstractPageUI.DYNAMIC_HEADING_BUTTON, dynamicValue);
 	}
 
@@ -797,7 +799,7 @@ public class AbstractPage {
 	}
 
 	public void clickToLinkText(WebDriver driver, String fieldName) {
-		clickToElement(driver, AbstractPageUI.DYNAMIC_ERROR_MESSAGE_LINK_TEXT, fieldName);
+		clickToElement(driver, AbstractPageUI.DYNAMIC_ERROR_MESSAGE_LINK_TEXT_HEADER, fieldName);
 	}
 	
 	public boolean getTextInReviewTab(WebDriver driver, String expectedValue) {
@@ -815,7 +817,7 @@ public class AbstractPage {
 	
 	public boolean sortOrNot(ArrayList<String> dropdownValues) {
 		System.out.println("number of value" + dropdownValues.size());
-		for(int i= 0 ; i < dropdownValues.size(); i++) {
+		for(int i= 0 ; i < dropdownValues.size()-1; i++) {
 			int temp = dropdownValues.get(i).compareTo(dropdownValues.get(i+1));
 			if(temp > 1) {
 				System.out.println("i values" + i);
@@ -825,19 +827,27 @@ public class AbstractPage {
 		return true;
 	}
 	
-	public void columnIsSortOrNot(WebDriver driver) {
-//		WebElement element = driver.findElement(By.xpath("//span[text()='Invoice #']"));
-//		element.click();
-//		List<WebElement> dropdownValues = driver.findElements(By.xpath("//table[@id='sales_invoice_grid_table']//td[2]"));
-//		ArrayList<String> listValue = new ArrayList<>();
-//		for(WebElement value: dropdownValues) {
-//			System.out.println("value are " + value.getText());
-//			listValue.add(value.getText());
-//		}
-		List<WebElement> dropdownValues = driver.findElements(By.xpath("//table[@id='sales_invoice_grid_table']//td[2]"));
-		int size = dropdownValues.size();
-		String actual[] = new String[size];
-		String sorted[] = new String[size];
-		
+	public void columnIsSortOrNot(WebDriver driver, String locator, String columnNumber, String...dynamicValue) {
+		locator = String.format(locator, (Object[]) dynamicValue);
+		columnNumber = String.format(columnNumber, (Object[]) dynamicValue);
+		WebElement element = driver.findElement(By.xpath(locator));
+		element.click();
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		List<WebElement> dropdownValues = driver.findElements(By.xpath(columnNumber));
+		ArrayList<String> listValue = new ArrayList<>();
+		for(WebElement value: dropdownValues) {
+			System.out.println("value are " + value.getText());
+			listValue.add(value.getText());
+		}
+		boolean sorted = sortOrNot(listValue);
+		assertEquals(true , sorted);
+	}
+	
+	public void checkSortedIsWorking(WebDriver driver) {
+		columnIsSortOrNot(driver, AbstractPageUI.DYNAMIC_ERROR_MESSAGE_LINK_TEXT_HEADER, AbstractPageUI.INVOICE_NUMBER_COLUMN, "Invoice #", "2");
 	}
 }

@@ -21,7 +21,7 @@ public class BackEndSalePageObject extends AbstractPage{
 	}
 
 	public boolean isErrorMessageDisplayed(WebDriver driver, String dynamicValue) {
-		return isControlDisplayed(driver, AbstractPageUI.DYNAMIC_ERROR_MESSAGE_LINK_TEXT , dynamicValue);
+		return isControlDisplayed(driver, AbstractPageUI.DYNAMIC_ERROR_MESSAGE_LINK_TEXT_HEADER , dynamicValue);
 	}
 
 }

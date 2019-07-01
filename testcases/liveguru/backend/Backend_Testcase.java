@@ -147,36 +147,10 @@ public class Backend_Testcase extends AbstractTest {
 		log.info("TC 01 - Verify Invoice: Step 04: Open Sale Invoice Page");
 		backendHomePage.openMultiplePage(driver, "Sales", "Invoices");
 		salePage = PageFactoryManage.getBackendSalePage(driver);
-		salePage.columnIsSortOrNot(driver);
+		salePage.checkSortedIsWorking(driver);
 
 	}
 	
-	//@Test
-	public void check() {
-		WebElement element = driver.findElement(By.xpath("//span[text()='Invoice #']"));
-		element.click();
-		List<WebElement> dropdownValues = element.findElements(By.xpath("//tr[@class='headings']/parent::thead/following-sibling::tbody//td[2]"));
-		ArrayList<String> listValue = new ArrayList<>();
-		for(WebElement value: dropdownValues) {
-			System.out.println("value are " + value.getText());
-			listValue.add(value.getText());
-		}
-		boolean sortOrNot = sortOrNot(listValue);
-		assertEquals(true, sortOrNot);
-
-	}
-	
-	public boolean sortOrNot(ArrayList<String> dropdownValues) {
-		System.out.println("number of value" + dropdownValues.size());
-		for(int i=0; i < dropdownValues.size(); i++) {
-			int temp = dropdownValues.get(i).compareTo(dropdownValues.get(i+1));
-			if(temp > 1) {
-				System.out.println("i values" + i);
-				return false;
-			}
-		}
-		return true;
-	}
 	@AfterClass(alwaysRun=true)
 	public void afterClass() {
 		closeBrowserAndDriver(driver);
