@@ -1,13 +1,6 @@
 package liveguru.backend;
 
-import static org.junit.Assert.assertEquals;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -15,7 +8,6 @@ import org.testng.annotations.Test;
 
 import commons.AbstractTest;
 import commons.PageFactoryManage;
-import liveguru.frontend.AbstractPageUI;
 import pageObjects.BackEndSalePageObject;
 import pageObjects.BackEnd_HomePageObject;
 import pageObjects.BackEnd_LoginPageObject;
@@ -43,7 +35,7 @@ public class Backend_Testcase extends AbstractTest {
 		msgToShareWishList = "Good";
 	}
 
-	//@Test
+	@Test
 	public void TC_01_VerifyInvoiceCanPrint() {
 		log.info("TC 01 - Verify Invoice: Step 01 :Input to username/ password to login");
 		backendloginPage.inputToDynamicTexboxField(driver, username, "username");
@@ -66,20 +58,20 @@ public class Backend_Testcase extends AbstractTest {
 		salePage.clickToDynamicButton(driver, "Search");
 		
 		log.info("TC 01 - Verify Invoice: Input to username/ password to login");
-		salePage.selectFirstItemInList(driver, AbstractPageUI.DYNAMIC_CHECKBOX, "order_ids");
-//		saleOrderPage.selectItemInActions();
-//		saleOrderPage.sleepInSeconds(5000);
-//		saleOrderPage.clickToDynamicButton(driver, "Submit");
-//		verifyTrue(saleOrderPage.isErrorMessageDisplayed(driver, "There are no printable documents related to selected orders."));
-//		saleOrderPage.selectItemInStatusBackEnd(driver, "Complete");
-//		saleOrderPage.clickToDynamicButton(driver, "Search");
-//		saleOrderPage.selectFirstOrderToPrint(driver);
-//		saleOrderPage.selectItemInActions();
-//		saleOrderPage.clickToDynamicButton(driver, "Submit");
-//		verifyTrue(saleOrderPage.isFileDownloaded("/Downloads", "invoice"));
-//		saleOrderPage.sleepInSeconds(50000);
+		salePage.selectFirstItemInDynamicList(driver, "order_ids");
+		salePage.selectItemInActions();
+		salePage.sleepInSeconds(5000);
+		salePage.clickToDynamicButton(driver, "Submit");
+		verifyTrue(salePage.isErrorMessageDisplayed(driver, "There are no printable documents related to selected orders."));
+		salePage.selectItemInStatusBackEnd(driver, "Complete");
+		salePage.clickToDynamicButton(driver, "Search");
+		salePage.selectFirstItemInDynamicList(driver, "order_ids");
+		salePage.selectItemInActions();
+		salePage.clickToDynamicButton(driver, "Submit");
+//		verifyTrue(salePage.isFileDownloaded("/Downloads", "invoice"));
+		salePage.sleepInSeconds(50000);
 	}
-	//@Test
+	@Test
 	public void TC_02_VerifyProductReviewMechanism() {
 		log.info("TC 01 -VerifyProductReviewMechanism: Open Detail product page");
 		tvPage = (FrontEnd_TVPageObject) salePage.openReviewFrontEndPage(driver);

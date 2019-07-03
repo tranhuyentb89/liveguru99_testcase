@@ -749,6 +749,10 @@ public class AbstractPage {
 		element.get(0).click();
 		sleepInSeconds(5000);
 	}
+	
+	public void selectFirstItemInDynamicList(WebDriver driver, String fieldName) {
+		selectFirstItemInList(driver, AbstractPageUI.DYNAMIC_CHECKBOX, fieldName);
+	}
 	public boolean isFileDownloaded(String downloadPath, String fileName) {
 		File dir = new File(downloadPath);
 		File[] dirContents = dir.listFiles();

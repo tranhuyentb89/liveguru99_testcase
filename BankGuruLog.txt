@@ -1,4 +1,8 @@
-2019-07-01 13:24:02,518 INFO  liveguru.backend.Backend_Testcase - TC 01 - Verify Invoice: Step 01 :Input to username/ password to login
-2019-07-01 13:24:02,721 INFO  liveguru.backend.Backend_Testcase - TC 01 - Verify Invoice:  Step 02 Click to login button
-2019-07-01 13:24:08,090 INFO  liveguru.backend.Backend_Testcase - TC 01 - Verify Invoice:  Step 03 - Click to close incomming msg
-2019-07-01 13:24:08,155 INFO  liveguru.backend.Backend_Testcase - TC 01 - Verify Invoice: Step 04: Open Sale Invoice Page
+2019-07-03 22:02:36,414 INFO  liveguru.backend.Backend_Testcase - TC 01 - Verify Invoice: Step 01 :Input to username/ password to login
+2019-07-03 22:02:36,723 INFO  liveguru.backend.Backend_Testcase - TC 01 - Verify Invoice:  Step 02 Click to login button
+2019-07-03 22:02:42,659 INFO  liveguru.backend.Backend_Testcase - TC 01 - Verify Invoice:  Step 03 - Click to close incomming msg
+2019-07-03 22:02:42,730 INFO  liveguru.backend.Backend_Testcase - TC 01 - Verify Invoice: Step 04: Open Order page
+2019-07-03 22:02:43,912 INFO  liveguru.backend.Backend_Testcase - TC 01 - Verify Invoice: Step 05: Select canceled invoice
+2019-07-03 22:02:44,430 INFO  liveguru.backend.Backend_Testcase - TC 01 - Verify Invoice: Step 06: click Search button
+2019-07-03 22:02:49,540 INFO  liveguru.backend.Backend_Testcase - TC 01 - Verify Invoice: Input to username/ password to login
+2019-07-03 22:03:06,406 INFO  liveguru.backend.Backend_Testcase - ===PASSED==
