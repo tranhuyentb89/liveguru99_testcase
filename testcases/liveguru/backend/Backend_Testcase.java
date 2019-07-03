@@ -35,7 +35,7 @@ public class Backend_Testcase extends AbstractTest {
 		msgToShareWishList = "Good";
 	}
 
-	@Test
+	//@Test
 	public void TC_01_VerifyInvoiceCanPrint() {
 		log.info("TC 01 - Verify Invoice: Step 01 :Input to username/ password to login");
 		backendloginPage.inputToDynamicTexboxField(driver, username, "username");
@@ -71,7 +71,7 @@ public class Backend_Testcase extends AbstractTest {
 //		verifyTrue(salePage.isFileDownloaded("/Downloads", "invoice"));
 		salePage.sleepInSeconds(50000);
 	}
-	@Test
+	//@Test
 	public void TC_02_VerifyProductReviewMechanism() {
 		log.info("TC 01 -VerifyProductReviewMechanism: Open Detail product page");
 		tvPage = (FrontEnd_TVPageObject) salePage.openReviewFrontEndPage(driver);

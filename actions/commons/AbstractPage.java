@@ -835,6 +835,7 @@ public class AbstractPage {
 		locator = String.format(locator, (Object[]) dynamicValue);
 		columnNumber = String.format(columnNumber, (Object[]) dynamicValue);
 		WebElement element = driver.findElement(By.xpath(locator));
+		WebElement colElement = driver.findElement(By.xpath(columnNumber));
 		element.click();
 		try {
 			Thread.sleep(3000);
