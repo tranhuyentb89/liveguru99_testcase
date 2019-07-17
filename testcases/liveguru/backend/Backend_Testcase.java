@@ -68,7 +68,6 @@ public class Backend_Testcase extends AbstractTest {
 		salePage.selectFirstItemInDynamicList(driver, "order_ids");
 		salePage.selectItemInActions();
 		salePage.clickToDynamicButton(driver, "Submit");
-//		verifyTrue(salePage.isFileDownloaded("/Downloads", "invoice"));
 		salePage.sleepInSeconds(50000);
 	}
 	//@Test
@@ -122,7 +121,7 @@ public class Backend_Testcase extends AbstractTest {
 		verifyTrue(tvPage.getTextInReviewTab(driver, summaryOfReviewBackend));
 	}
 
-	@Test
+	//@Test
 	public void TC_03_VerifySortWorkingCorrectly() {
 		backendloginPage.openUrl(driver, backendUrl);
 		if(backendloginPage.isLoginFormDisplayed()) {
@@ -139,11 +138,46 @@ public class Backend_Testcase extends AbstractTest {
 		log.info("TC 01 - Verify Invoice: Step 04: Open Sale Invoice Page");
 		backendHomePage.openMultiplePage(driver, "Sales", "Invoices");
 		salePage = PageFactoryManage.getBackendSalePage(driver);
-		salePage.checkSortedIsWorking(driver);
+		salePage.clickToDynamicSortButton(driver, "Invoice #");
+		salePage.sleepInSeconds(3000);
+		salePage.checkSortedIsWorking(driver, "2");
+		salePage.sleepInSeconds(3000);
+		salePage.clickToDynamicSortButton(driver, "Order #");
+		salePage.sleepInSeconds(3000);
+		salePage.checkSortedIsWorking(driver, "4");
 
 	}
 	
-	@AfterClass(alwaysRun=true)
+	@Test
+	public void TC_04_VerifyPagingWorkingCorrectly() {
+		backendloginPage.openUrl(driver, backendUrl);
+		if(backendloginPage.isLoginFormDisplayed()) {
+			log.info("TC 01 - Verify Invoice: Step 01 :Input to username/ password to login");
+			backendloginPage.inputToDynamicTexboxField(driver, username, "username");
+			backendloginPage.inputToDynamicTexboxField(driver, password, "login");
+			
+			log.info("TC 01 - Verify Invoice:  Step 02 Click to login button");
+			backendHomePage = backendloginPage.clickToLoginButton(driver, "Login");
+			
+			log.info("TC 01 - Verify Invoice:  Step 03 - Click to close incomming msg");
+			backendHomePage.clickToCloseInCommingMessage();
+		}
+		backendloginPage.openMultiplePage(driver, "Sales", "Orders");
+		salePage = PageFactoryManage.getBackendSalePage(driver);
+		salePage.selectInViewNumber("20");
+		verifyEquals(salePage.countRowOfTable(), 20);
+		salePage.selectInViewNumber("30");
+		verifyEquals(salePage.countRowOfTable(), 30);
+		salePage.selectInViewNumber("50");
+		verifyEquals(salePage.countRowOfTable(), 50);
+		salePage.selectInViewNumber("100");
+		verifyEquals(salePage.countRowOfTable(), 100);
+		salePage.selectInViewNumber("200");
+		verifyEquals(salePage.countRowOfTable(), 200);
+
+	}
+	
+	//@AfterClass(alwaysRun=true)
 	public void afterClass() {
 		closeBrowserAndDriver(driver);
 	}

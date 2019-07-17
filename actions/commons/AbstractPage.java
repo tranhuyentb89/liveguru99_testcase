@@ -1,7 +1,6 @@
 package commons;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -19,7 +18,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 import liveguru.backend.HomePageUI;
 import liveguru.frontend.AbstractPageUI;
@@ -180,22 +178,14 @@ public class AbstractPage {
 	public void selectCustomDropdown(WebDriver driver, String parentXpath, String childXpath, String valueExpected) {
 		JavascriptExecutor javascript;
 		javascript = (JavascriptExecutor) driver;
-		// click de mo dropdownlist
 		WebElement parent = driver.findElement(By.xpath(parentXpath));
 		javascript.executeScript("arguments[0].click()", parent);
-
-		// wait cho cac item duoc hien thi
 		List<WebElement> child = driver.findElements(By.xpath(childXpath));
 		WebDriverWait waitExplicit = new WebDriverWait(driver, 30);
 		waitExplicit.until(ExpectedConditions.visibilityOfAllElements(child));
-
-		// get text tat ca cac item ra va kiem tra bang gia tri mong muon hay ko
 		for (WebElement childItem : child) {
 			if (childItem.getText().equals(valueExpected)) {
-				// scroll den item can chon
 				javascript.executeScript("arguments[0].scrollIntoView(true);", childItem);
-
-				// click vao item nay
 				childItem.click();
 				break;
 			}
@@ -563,32 +553,6 @@ public class AbstractPage {
 		explicit.until(ExpectedConditions.alertIsPresent());
 	}
 
-	// open page
-	// public ChangePasswordPageObject openChangePasswordPage(WebDriver driver) {
-	// waitToElementVisible(driver,
-	// com.bankguru.customers.AbstractPageUI.CHANGE_PASSWORD_LINK);
-	// clickToElement(driver, AbstractPageUI.CHANGE_PASSWORD_LINK);
-	// return PageFactoryManage.getChangPasswordPage(driver);
-	// }
-	//
-	// public DepositPageObject openDepositPage(WebDriver driver) {
-	// waitToElementVisible(driver, AbstractPageUI.DEPOSIT_LINK);
-	// clickToElement(driver, AbstractPageUI.DEPOSIT_LINK);
-	// return PageFactoryManage.getDepositPage(driver);
-	// }
-	//
-	// public NewAccountPageObject openNewAccountPage(WebDriver driver) {
-	// waitToElementVisible(driver, AbstractPageUI.NEW_ACCOUNT_LINK);
-	// clickToElement(driver, AbstractPageUI.NEW_ACCOUNT_LINK);
-	// return PageFactoryManage.getNewAccountPage(driver);
-	// }
-	//
-	// public NewCustomerPageObject openNewCustomerPage(WebDriver driver) {
-	// waitToElementVisible(driver, AbstractPageUI.NEW_CUSTOMER_LINK);
-	// clickToElement(driver, AbstractPageUI.NEW_CUSTOMER_LINK);
-	// return PageFactoryManage.getNewCustomerPage(driver);
-	// }
-
 	public AbstractPage openMultiplePage(WebDriver driver, String navBar, String subMenu) {
 		clickToElement(driver, AbstractPageUI.DYNAMIC_LINK, navBar);
 		hoverToElement(driver, AbstractPageUI.DYNAMIC_LINK, subMenu);
@@ -621,17 +585,7 @@ public class AbstractPage {
 		waitForElementVisible(driver, AbstractPageUI.DYNAMIC_MENU_LINK, pageName);
 		clickToElement(driver, AbstractPageUI.DYNAMIC_MENU_LINK, pageName);
 	}
-
-	// public void pressTab(WebDriver driver, String fieldName) {
-	// sendKeyboardToElement(driver, AbstractPageUI.DYNAMIC_TEXTBOX_TEXTAREA_BUTTON,
-	// Keys.TAB, fieldName);
-	// }
-
-	// public void pressSpace(WebDriver driver, String fieldName) {
-	// sendKeyboardToElement(driver, AbstractPageUI.DYNAMIC_TEXTBOX_TEXTAREA_BUTTON,
-	// Keys.SPACE, fieldName);
-	// }
-	//
+	
 	public void inputToDynamicTexboxField(WebDriver driver, String value, String fieldName) {
 		waitForElementVisible(driver, AbstractPageUI.DYNAMIC_TEXTBOX_CHECKBOX, fieldName);
 		sendKeyToElement(driver, AbstractPageUI.DYNAMIC_TEXTBOX_CHECKBOX, value, fieldName);
@@ -831,17 +785,9 @@ public class AbstractPage {
 		return true;
 	}
 	
-	public void columnIsSortOrNot(WebDriver driver, String locator, String columnNumber, String...dynamicValue) {
-		locator = String.format(locator, (Object[]) dynamicValue);
+	public void columnIsSortOrNot(WebDriver driver, String columnNumber, String...dynamicValue) {
 		columnNumber = String.format(columnNumber, (Object[]) dynamicValue);
-		WebElement element = driver.findElement(By.xpath(locator));
-		WebElement colElement = driver.findElement(By.xpath(columnNumber));
-		element.click();
-		try {
-			Thread.sleep(3000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		//clickToDynamicSortButton(driver, sortButtonName);
 		List<WebElement> dropdownValues = driver.findElements(By.xpath(columnNumber));
 		ArrayList<String> listValue = new ArrayList<>();
 		for(WebElement value: dropdownValues) {
@@ -852,7 +798,12 @@ public class AbstractPage {
 		assertEquals(true , sorted);
 	}
 	
-	public void checkSortedIsWorking(WebDriver driver) {
-		columnIsSortOrNot(driver, AbstractPageUI.DYNAMIC_ERROR_MESSAGE_LINK_TEXT_HEADER, AbstractPageUI.INVOICE_NUMBER_COLUMN, "Invoice #", "2");
+	public void clickToDynamicSortButton(WebDriver driver, String sortButtonName) {
+		clickToElement(driver, AbstractPageUI.DYNAMIC_ERROR_MESSAGE_LINK_TEXT_HEADER, sortButtonName);
+	}
+	
+	public void checkSortedIsWorking(WebDriver driver, String colNumber) {
+		columnIsSortOrNot(driver , AbstractPageUI.INVOICE_NUMBER_COLUMN, colNumber);
+		sleepInSeconds(3000);
 	}
 }

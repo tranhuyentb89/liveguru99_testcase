@@ -1,4 +1,13 @@
-2019-07-03 22:20:16,114 INFO  liveguru.backend.Backend_Testcase - TC 01 - Verify Invoice: Step 01 :Input to username/ password to login
-2019-07-03 22:20:16,362 INFO  liveguru.backend.Backend_Testcase - TC 01 - Verify Invoice:  Step 02 Click to login button
-2019-07-03 22:20:24,166 INFO  liveguru.backend.Backend_Testcase - TC 01 - Verify Invoice:  Step 03 - Click to close incomming msg
-2019-07-03 22:20:24,221 INFO  liveguru.backend.Backend_Testcase - TC 01 - Verify Invoice: Step 04: Open Sale Invoice Page
+2019-07-17 23:07:21,514 INFO  liveguru.backend.Backend_Testcase - TC 01 - Verify Invoice: Step 01 :Input to username/ password to login
+2019-07-17 23:07:21,777 INFO  liveguru.backend.Backend_Testcase - TC 01 - Verify Invoice:  Step 02 Click to login button
+2019-07-17 23:07:29,295 INFO  liveguru.backend.Backend_Testcase - TC 01 - Verify Invoice:  Step 03 - Click to close incomming msg
+2019-07-17 23:07:32,534 INFO  liveguru.backend.Backend_Testcase - Compare value = true
+2019-07-17 23:07:32,534 INFO  liveguru.backend.Backend_Testcase - ===PASSED===
+2019-07-17 23:07:33,823 INFO  liveguru.backend.Backend_Testcase - Compare value = true
+2019-07-17 23:07:33,823 INFO  liveguru.backend.Backend_Testcase - ===PASSED===
+2019-07-17 23:07:35,292 INFO  liveguru.backend.Backend_Testcase - Compare value = true
+2019-07-17 23:07:35,292 INFO  liveguru.backend.Backend_Testcase - ===PASSED===
+2019-07-17 23:07:36,634 INFO  liveguru.backend.Backend_Testcase - Compare value = false
+2019-07-17 23:07:36,634 INFO  liveguru.backend.Backend_Testcase - ===FAILED===
+2019-07-17 23:07:37,833 INFO  liveguru.backend.Backend_Testcase - Compare value = false
+2019-07-17 23:07:37,833 INFO  liveguru.backend.Backend_Testcase - ===FAILED===
