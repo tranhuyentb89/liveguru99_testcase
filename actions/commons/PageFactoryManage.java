@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import pageObjects.BackEndSalePageObject;
 import pageObjects.BackEnd_HomePageObject;
+import pageObjects.BackEnd_ManageCustomerPageObject;
 import pageObjects.BackEnd_PendingReviewPageObject;
 import pageObjects.FrontEnd_AccountInformationPageObject;
 import pageObjects.FrontEnd_AdvancedSearchPageObject;
@@ -58,6 +59,10 @@ public class PageFactoryManage {
 
 	public static BackEnd_PendingReviewPageObject getPendingReviewPage(WebDriver driver) {
 		return new BackEnd_PendingReviewPageObject(driver);
+	}
+
+	public static BackEnd_ManageCustomerPageObject getManageCustomerPage(WebDriver driver) {
+		return new BackEnd_ManageCustomerPageObject(driver);
 	}
 	
 

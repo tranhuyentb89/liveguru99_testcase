@@ -224,8 +224,8 @@ public class RegisterToSystem extends AbstractTest {
 		log.info("AddYourReview - Step 01 : Open TV Page");
 		tvPage.openUrl(driver, tvPageUrl);
 		checkoutCartPage = tvPage.clickToAddToCardButton(driver, "Samsung LCD");
-		checkoutCartPage.selectItemInDynamicDropdown(driver, "United States", "country", "country");
-		checkoutCartPage.selectItemInDynamicDropdown(driver, "New York", "region_id", "region_id");
+		checkoutCartPage.selectItemInDynamicDropdown(driver, "United States", "country");
+		checkoutCartPage.selectItemInDynamicDropdown(driver, "New York", "region_id");
 		checkoutCartPage.inputToDynamicTexboxField(driver,zipCode , "postcode");
 		checkoutCartPage.clickToDynamicButton(driver, "Estimate");
 		verifyEquals(checkoutCartPage.getFlateRateAmount(), "$5.00");
@@ -236,9 +236,9 @@ public class RegisterToSystem extends AbstractTest {
 		checkoutCartPage.clickToDynamicButton(driver, "Proceed to Checkout");
 		checkoutCartPage.inputToDynamicTexboxField(driver, address, "billing:street1");
 		checkoutCartPage.inputToDynamicTexboxField(driver, city, "billing:city");
-		checkoutCartPage.selectItemInDynamicDropdown(driver, "New York", "billing:region_id", "billing:region_id");
+		checkoutCartPage.selectItemInDynamicDropdown(driver, "New York", "billing:region_id");
 		checkoutCartPage.inputToDynamicTexboxField(driver, zipCode, "billing:postcode");
-		checkoutCartPage.selectItemInDynamicDropdown(driver, "United States", "billing:country_id", "billing:country_id");
+		checkoutCartPage.selectItemInDynamicDropdown(driver, "United States", "billing:country_id");
 		checkoutCartPage.inputToDynamicTexboxField(driver, phoneNumber, "billing:telephone");
 		checkoutCartPage.clickToDynamicButton(driver, "Continue");
 		checkoutCartPage.clickToCountinueButtonAtShippingMethod("shipping-method-buttons-container");

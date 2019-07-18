@@ -26,8 +26,9 @@ public class AbstractPageUI {
 	//Xpath of backend part
 	public static final String DYNAMIC_BUTTON_INPUT_TAG_NAME ="//input[@title='%s']";
 	public static final String DYNAMIC_LINK ="//div[@class='nav-bar']//span[text()='%s']";
-	public static final String DYNAMIC_CHECKBOX ="//input[@name='%s']";
-	public static final String DYNAMIC_ACTION ="//a[text()='%s']";
+	public static final String DYNAMIC_CHECKBOX_TEXTBOX ="//input[@name='%s']";
+	public static final String DYNAMIC_ACTION_SELECT_UNSELECT ="//a[text()='%s']";
 	public static final String DYNAMIC_ERROR_MESSAGE_LINK_TEXT_HEADER ="//span[text()='%s']";
 	public static final String INVOICE_NUMBER_COLUMN ="//table[@id='sales_invoice_grid_table']//td[%s]";
+	public static final String CUSTOMER_GRID_TABLE ="//table[@id='customerGrid_table']/tbody//td[%s]";
 }

@@ -138,16 +138,11 @@ public class AbstractTest {
 		boolean status;
 		try {
 			if (actual instanceof String && expected instanceof String) {
-				actual = actual.toString().trim();
-				log.info("Actual = " + actual);
-				expected = expected.toString().trim();
-				log.info("Expected = " + expected);
 				status = (actual.equals(expected));
 			} else {
 				status = (actual == expected);
 			}
 
-			log.info("Compare value = " + status);
 			if (status) {
 				log.info("===PASSED===");
 			} else {

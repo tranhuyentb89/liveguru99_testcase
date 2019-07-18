@@ -219,8 +219,8 @@ public class AbstractPage {
 		}
 	}
 
-	public void selectItemInDynamicDropdown(WebDriver driver, String valueExpected, String parent, String child) {
-		selectDynamicCustomDropdown(driver, AbstractPageUI.DYNAMIC_PARENT_XPATH, AbstractPageUI.DYNAMIC_CHILD_XPATH, valueExpected, parent, child);
+	public void selectItemInDynamicDropdown(WebDriver driver, String valueExpected, String parent) {
+		selectDynamicCustomDropdown(driver, AbstractPageUI.DYNAMIC_PARENT_XPATH, AbstractPageUI.DYNAMIC_CHILD_XPATH, valueExpected, parent);
 	}
 
 	public void sleepInSeconds(long timeInSecond) {
@@ -326,12 +326,9 @@ public class AbstractPage {
 	}
 
 	public void switchToChildWindowByID(WebDriver driver, String parent) throws Exception {
-		// get ra tat ca cac tab dang co
 		Set<String> allWindows = driver.getWindowHandles();
 		Thread.sleep(3000);
-		// dung vong for duyet qua tung cua so
 		for (String runWindow : allWindows) {
-			// kiem tra neu Id cua cua so nao khac voi parentId thi switch qua
 			if (!runWindow.equals(parent)) {
 				driver.switchTo().window(runWindow);
 				break;
@@ -616,18 +613,6 @@ public class AbstractPage {
 	public void clearValueOfTextbox(WebDriver driver, String fieldName) {
 		clearValue(driver, AbstractPageUI.DYNAMIC_TEXTBOX_CHECKBOX, fieldName);
 	}
-	//
-	// public void removeAttribute(WebDriver driver, String attributeToRemoved,
-	// String fieldName) {
-	// removeAttributeInDOM(driver, AbstractPageUI.DYNAMIC_TEXTBOX_TEXTAREA_BUTTON,
-	// attributeToRemoved, fieldName);
-	// }
-	//
-	// public void selectFromDropdown(WebDriver driver, String value, String
-	// fieldName) {
-	// selectItemInHtmlDropdown(driver, AbstractPageUI.DYNAMIC_DROPDOWN, value,
-	// fieldName);
-	// }
 
 	public boolean checkPageTitle(WebDriver driver, String fieldName) {
 		return isControlDisplayed(driver, AbstractPageUI.DYNAMIC_PAGE_TITLE, fieldName);
@@ -705,7 +690,7 @@ public class AbstractPage {
 	}
 	
 	public void selectFirstItemInDynamicList(WebDriver driver, String fieldName) {
-		selectFirstItemInList(driver, AbstractPageUI.DYNAMIC_CHECKBOX, fieldName);
+		selectFirstItemInList(driver, AbstractPageUI.DYNAMIC_CHECKBOX_TEXTBOX, fieldName);
 	}
 	public boolean isFileDownloaded(String downloadPath, String fileName) {
 		File dir = new File(downloadPath);
@@ -743,7 +728,7 @@ public class AbstractPage {
 	}
 	
 	public void clickToButtonInActionColumn(WebDriver driver, String fieldName) {
-		clickToElement(driver, AbstractPageUI.DYNAMIC_ACTION, fieldName);
+		clickToElement(driver, AbstractPageUI.DYNAMIC_ACTION_SELECT_UNSELECT, fieldName);
 	}
 	
 	public AbstractPage openBackEndPage(WebDriver driver) {
@@ -805,5 +790,16 @@ public class AbstractPage {
 	public void checkSortedIsWorking(WebDriver driver, String colNumber) {
 		columnIsSortOrNot(driver , AbstractPageUI.INVOICE_NUMBER_COLUMN, colNumber);
 		sleepInSeconds(3000);
+	}
+	public void inputToDynamicTextboxBackend(WebDriver driver, String valueToSendkeys, String fieldName) {
+		sendKeyToElement(driver, AbstractPageUI.DYNAMIC_CHECKBOX_TEXTBOX, valueToSendkeys, fieldName);
+	}
+	
+	public void pressEnter(WebDriver driver, String values) {
+		sendKeyboardToElement(driver, AbstractPageUI.DYNAMIC_CHECKBOX_TEXTBOX, Keys.ENTER, values);
+	}
+	
+	public String backendGetTextInTable(WebDriver driver, String columnNumber) {
+		return getTextElement(driver, AbstractPageUI.CUSTOMER_GRID_TABLE, columnNumber);
 	}
 }

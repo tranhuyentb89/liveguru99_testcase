@@ -1,13 +1,20 @@
-2019-07-17 23:07:21,514 INFO  liveguru.backend.Backend_Testcase - TC 01 - Verify Invoice: Step 01 :Input to username/ password to login
-2019-07-17 23:07:21,777 INFO  liveguru.backend.Backend_Testcase - TC 01 - Verify Invoice:  Step 02 Click to login button
-2019-07-17 23:07:29,295 INFO  liveguru.backend.Backend_Testcase - TC 01 - Verify Invoice:  Step 03 - Click to close incomming msg
-2019-07-17 23:07:32,534 INFO  liveguru.backend.Backend_Testcase - Compare value = true
-2019-07-17 23:07:32,534 INFO  liveguru.backend.Backend_Testcase - ===PASSED===
-2019-07-17 23:07:33,823 INFO  liveguru.backend.Backend_Testcase - Compare value = true
-2019-07-17 23:07:33,823 INFO  liveguru.backend.Backend_Testcase - ===PASSED===
-2019-07-17 23:07:35,292 INFO  liveguru.backend.Backend_Testcase - Compare value = true
-2019-07-17 23:07:35,292 INFO  liveguru.backend.Backend_Testcase - ===PASSED===
-2019-07-17 23:07:36,634 INFO  liveguru.backend.Backend_Testcase - Compare value = false
-2019-07-17 23:07:36,634 INFO  liveguru.backend.Backend_Testcase - ===FAILED===
-2019-07-17 23:07:37,833 INFO  liveguru.backend.Backend_Testcase - Compare value = false
-2019-07-17 23:07:37,833 INFO  liveguru.backend.Backend_Testcase - ===FAILED===
+2019-07-18 23:48:10,177 INFO  liveguru.backend.Backend_Testcase - TC 01 - Verify Invoice: Step 01 :Input to username/ password to login
+2019-07-18 23:48:10,422 INFO  liveguru.backend.Backend_Testcase - TC 01 - Verify Invoice:  Step 02 Click to login button
+2019-07-18 23:48:15,807 INFO  liveguru.backend.Backend_Testcase - TC 01 - Verify Invoice:  Step 03 - Click to close incomming msg
+2019-07-18 23:48:15,865 INFO  liveguru.backend.Backend_Testcase - TC_05 : Open Manage Customer page
+2019-07-18 23:48:17,987 INFO  liveguru.backend.Backend_Testcase - TC_05: Input to searchField
+2019-07-18 23:48:28,835 INFO  liveguru.backend.Backend_Testcase - TC_05: Press Enter
+2019-07-18 23:48:30,906 INFO  liveguru.backend.Backend_Testcase - TC_05: Verify ID is mapping with input key
+2019-07-18 23:48:30,955 INFO  liveguru.backend.Backend_Testcase - ===PASSED===
+2019-07-18 23:48:30,955 INFO  liveguru.backend.Backend_Testcase - TC_05: Verify Name is mapping with input key
+2019-07-18 23:48:31,017 INFO  liveguru.backend.Backend_Testcase - ===PASSED===
+2019-07-18 23:48:31,017 INFO  liveguru.backend.Backend_Testcase - TC_05: Verify Email is mapping with input key
+2019-07-18 23:48:31,080 INFO  liveguru.backend.Backend_Testcase - ===PASSED===
+2019-07-18 23:48:31,080 INFO  liveguru.backend.Backend_Testcase - TC_05: Verify Phone is mapping with input key
+2019-07-18 23:48:31,142 INFO  liveguru.backend.Backend_Testcase - ===PASSED===
+2019-07-18 23:48:31,142 INFO  liveguru.backend.Backend_Testcase - TC_05: Verify Zip is mapping with input key
+2019-07-18 23:48:31,173 INFO  liveguru.backend.Backend_Testcase - ===PASSED===
+2019-07-18 23:48:31,173 INFO  liveguru.backend.Backend_Testcase - TC_05: Verify Country is mapping with input key
+2019-07-18 23:48:31,220 INFO  liveguru.backend.Backend_Testcase - ===PASSED===
+2019-07-18 23:48:31,220 INFO  liveguru.backend.Backend_Testcase - TC_05: Verify State is mapping with input key
+2019-07-18 23:48:31,283 INFO  liveguru.backend.Backend_Testcase - ===PASSED===
